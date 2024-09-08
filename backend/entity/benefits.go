@@ -18,4 +18,7 @@ type Benefits struct {
 
 	AdminID *uint
 	Admin Admin `gorm:"foreignKey:AdminID"`
+
+	// 1 benefit เป็นเจ้าของได้หนึ่ง payment
+	Payment Payment `gorm:"foreignKey:BenefitID"`
 }
