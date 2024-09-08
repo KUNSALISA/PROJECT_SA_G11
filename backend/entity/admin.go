@@ -15,4 +15,7 @@ type Admin struct {
 	Birthday  time.Time `json:"birthday"`
 
 	Admin []FlightAndFlightDetails `gorm:"foreignKey:AdminID"`
+
+	// 1 admin เป็นเจ้าของได้หลาย Benefits
+	Benefits []Benefits `gorm:"foreignKey:AdminID"`
 }
