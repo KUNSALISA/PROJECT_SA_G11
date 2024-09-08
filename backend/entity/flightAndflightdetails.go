@@ -14,5 +14,7 @@ type FlightAndFlightDetails struct {
 	FlightDetail   FlightDetails `gorm:"foriegnKey:FlightDetailID"`
 
 	AdminID *uint
-	Admin  Admin `gorm:"foriegnKey:AdminID"`
+	Admin   Admin `gorm:"foriegnKey:AdminID"`
+
+	Booking_flight_and_flight_details []Booking_flight_and_flight_details `gorm:"foreignKey:FlightAndFlightDetailsID"`
 }
