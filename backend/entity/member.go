@@ -7,7 +7,7 @@ import (
 )
 
 type Member struct {
-	gorm.Model  
+	gorm.Model
 	Password   string
 	Email      string
 	FirstName  string
@@ -18,4 +18,10 @@ type Member struct {
 
 	// 1 member เป็นเจ้าของได้หลาย payment
 	Payment []Payment `gorm:"foreignKey:MemberID"`
+
+	// 1 member เป็นเจ้าของได้หลาย Request
+	Requests []Request `gorm:"foreignKey:MemberID"`
+
+	// 1 member เป็นเจ้าของได้หลาย Notification
+	Notifications []Notification `gorm:"foreignKey:MemberID"`
 }
