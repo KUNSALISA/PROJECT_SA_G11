@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/project-G11/entity"
+	"github.com/KUNSALISA/PROJECT_SA_G11/entity"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
