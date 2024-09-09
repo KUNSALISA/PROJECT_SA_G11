@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import './Help.css';
 
 const Help = () => {
@@ -41,7 +41,7 @@ const Help = () => {
                 <select>
                   <option value="">Choose a category</option>
                   {/* Add other options here */}
-                </select>
+/*               </select>
               </label>
               <label>
                 Firstname:
@@ -76,4 +76,4 @@ const Help = () => {
   );
 };
 
-export default Help;
+export default Help;*/
