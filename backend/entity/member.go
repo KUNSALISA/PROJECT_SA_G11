@@ -26,4 +26,6 @@ type Member struct {
 	Notifications []Notification `gorm:"foreignKey:MemberID"`
 
 	Passenger []Passenger `gorm:"foreignKey:MemberID"`
+
+	Point_Calculators []Point_Calculator `gorm:"many2many:Member_has_Point_Calculator"`
 }
