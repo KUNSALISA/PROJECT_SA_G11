@@ -14,7 +14,7 @@ type Member struct {
 	LastName   string
 	Birthday   time.Time
 	Gender     string
-	TotalPoint string
+	TotalPoint uint
 
 	// 1 member เป็นเจ้าของได้หลาย payment
 	Payment []Payment `gorm:"foreignKey:MemberID"`
