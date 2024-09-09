@@ -1,0 +1,277 @@
+.main-container {
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+    background: white;
+  }
+  
+  .rectangle {
+    position: absolute;
+    background: #D8D1BE;
+    border-radius: 12px;
+  }
+  
+  .top-right {
+    width: 480px;
+    height: 73px;
+    left: 880px;
+    top: 738px;
+  }
+  
+  .middle-left {
+    width: 626px;
+    height: 598px;
+    left: 82px;
+    top: 213px;
+  }
+  
+  .middle-right {
+    width: 480px;
+    height: 503px;
+    left: 880px;
+    top: 213px;
+  }
+  
+  .label {
+    position: absolute;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-family: Roboto;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    word-wrap: break-word;
+  }
+  
+  .issue-country {
+    left: 125px;
+    top: 687px;
+  }
+  
+  .name-on-card {
+    left: 126px;
+    top: 585px;
+  }
+  
+  .cvv {
+    left: 408px;
+    top: 484px;
+  }
+  
+  .card-type {
+    left: 125px;
+    top: 379px;
+  }
+  
+  .valid-until {
+    left: 126px;
+    top: 484px;
+  }
+  
+  .header-text {
+    position: absolute;
+    color: black;
+    font-size: 40px;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 48px;
+    word-wrap: break-word;
+  }
+  
+  .flight-title {
+    width: 422px;
+    left: 915px;
+    top: 233px;
+  }
+  
+  .total-title {
+    width: 416px;
+    left: 912px;
+    top: 756px;
+  }
+  
+  .card-title {
+    left: 332px;
+    top: 272px;
+  }
+  
+  .input-box {
+    position: absolute;
+    background: #E5E5EA;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #79747E;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cvv-input {
+    width: 263px;
+    height: 40px;
+    left: 408px;
+    top: 512px;
+  }
+  
+  .card-input {
+    width: 263px;
+    height: 40px;
+    left: 125px;
+    top: 410px;
+  }
+  
+  .name-input {
+    width: 546px;
+    height: 40px;
+    left: 125px;
+    top: 614px;
+  }
+  
+  .country-input {
+    width: 546px;
+    height: 40px;
+    left: 122px;
+    top: 716px;
+  }
+  
+  .valid-until-input {
+    width: 263px;
+    height: 40px;
+    left: 125px;
+    top: 512px;
+  }
+  
+  .payment-status-box {
+    width: 241px;
+    height: 40px;
+    left: 1005px;
+    top: 655px;
+    background: #69ABC1;
+    border-radius: 12px;
+  }
+  
+  .payment-status {
+    left: 1047px;
+    top: 667px;
+    position: absolute;
+    color: #F5F5F5;
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 16px;
+  }
+  
+  .header-container {
+    width: 1440px;
+    height: 146px;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    background: #69ABC1;
+  }
+  
+  .logo {
+    width: 162px;
+    height: 128px;
+    position: absolute;
+    left: 65px;
+    top: 9px;
+  }
+  
+  .profile-pic-container {
+    width: 96px;
+    height: 88px;
+    position: absolute;
+    left: 1038px;
+    top: 30px;
+  }
+  
+  .profile-pic-bg {
+    width: 96px;
+    height: 88px;
+    background: #D9D9D9;
+    border-radius: 9999px;
+  }
+  
+  .profile-pic {
+    width: 113px;
+    height: 109px;
+    position: absolute;
+    left: -8px;
+    top: -10px;
+  }
+  
+  .nav {
+    position: absolute;
+    width: 141.02px;
+    height: 37.47px;
+    background: white;
+    border-radius: 9.38px;
+    text-align: center;
+    color: #5F212E;
+    font-size: 21.8px;
+    font-family: Bree Serif;
+    font-weight: 400;
+  }
+  
+  .benefits {
+    left: 559px;
+    top: 59px;
+  }
+  
+  .help-center {
+    left: 704px;
+    top: 59px;
+  }
+  
+  .member {
+    left: 1155px;
+    top: 69px;
+  }
+  
+  .home {
+    left: 269px;
+    top: 61px;
+  }
+  
+  .flight {
+    left: 414px;
+    top: 61px;
+  }
+  
+  .additional-box {
+    width: 103px;
+    height: 97px;
+    position: absolute;
+    background: #69ABC1;
+    left: 1296px;
+    top: 20px;
+  }
+  
+  .additional-inner-box {
+    width: 36px;
+    height: 21px;
+    position: absolute;
+    left: 54px;
+    top: 54px;
+    border: 4px white solid;
+  }
+
+  .small-icon {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background: #69abc1;
+    border: 1px #69abc1 solid;
+  }
+  
+  .small-icon::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border: 4px white solid;
+  }
