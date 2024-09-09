@@ -1,0 +1,205 @@
+.container {
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+    background: white;
+  }
+  
+  .button {
+    width: 280px;
+    height: 60px;
+    position: absolute;
+    background: #D8D1BE;
+    border-radius: 8px;
+  }
+  
+  .button1 { left: 422px; top: 297px; }
+  .button2 { left: 426px; top: 408px; }
+  .button3 { left: 946px; top: 408px; }
+  .button4 { left: 422px; top: 508px; }
+  .button5 { left: 946px; top: 508px; }
+  .button6 { left: 426px; top: 608px; }
+  .button7 { left: 426px; top: 708px; }
+  .button8 { left: 946px; top: 714px; }
+  .button9 { left: 946px; top: 297px; }
+  .button10 { left: 946px; top: 607px; }
+  
+  .label {
+    position: absolute;
+    color: #5F212E;
+    font-size: 35px;
+    font-family: 'Bree-Serif';
+    font-weight: 400;
+    font-weight: bold;
+  }
+  
+  .label1 { left: 233px; top: 309px; }
+  .label2 { left: 217px; top: 420px; }
+  .label3 { left: 794px; top: 420px; }
+  .label4 { left: 180px; top: 520px; }
+  .label5 { left: 720px; top: 520px; }
+  .label6 { left: 326px; top: 620px; }
+  .label7 { left: 340px; top: 714px; }
+  .label8 { left: 848px; top: 726px; }
+  .label9 { left: 849px; top: 309px; }
+  .label10 { left: 768px; top: 620px; }
+
+  
+  .header {
+    width: 1440px;
+    height: 146px;
+    left: 0;
+    top: 0;
+    position: absolute;
+  }
+  
+  .header-background {
+    width: 1440px;
+    height: 146px;
+    background: #69ABC1;
+    position: absolute;
+  }
+  
+  .header-logo {
+    width: 162px;
+    height: 128px;
+    left: 65px;
+    top: 9px;
+    position: absolute;
+  }
+  
+  .profile {
+    width: 96px;
+    height: 88px;
+    left: 1038px;
+    top: 30px;
+    position: absolute;
+  }
+  
+  .profile-background {
+    width: 96px;
+    height: 88px;
+    background: #D9D9D9;
+    border-radius: 9999px;
+    position: absolute;
+  }
+  
+  .profile-image {
+    width: 112.94px;
+    height: 109.32px;
+    left: -8.47px;
+    top: -10.39px;
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .home-button {
+    width: 187px;
+    height: 37.58px;
+    left: 317px;
+    top: 63px;
+    position: absolute;
+  }
+  
+  .home-button-background {
+    width: 187px;
+    height: 37.58px;
+    background: white;
+    border-radius: 9.38px;
+  }
+  
+  .home-button-text {
+    width: 90.17px;
+    height: 30.09px;
+    left: 46.69px;
+    top: 3.75px;
+    text-align: center;
+    color: #5F212E;
+    font-size: 21.80px;
+    font-family: 'Bree-Serif';
+    font-weight: 400;
+    position: absolute;
+  }
+  
+  .member-button {
+    width: 141.02px;
+    height: 38px;
+    left: 1155px;
+    top: 63px;
+    position: absolute;
+  }
+  
+  .member-button-background {
+    width: 141.02px;
+    height: 38px;
+    background: white;
+    border-radius: 9.38px;
+  }
+  
+  .member-button-text {
+    width: 88px;
+    height: 30.43px;
+    left: 27.21px;
+    top: 2.78px;
+    text-align: center;
+    color: #5F212E;
+    font-size: 21.80px;
+    font-family: 'Bree-Serif';
+    font-weight: 400;
+    position: absolute;
+  }
+  
+  .notification {
+    width: 103px;
+    height: 97px;
+    left: 1296px;
+    top: 14px;
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #ffffff solid;
+  }
+  
+  .notification-border {
+    width: 36px;
+    height: 21px;
+    left: 54px;
+    top: 54px;
+    position: absolute;
+    border: 4px #ffffff solid;
+  }
+  
+  .save-button-bottom {
+    width: 235px;
+    height: 69px;
+    left: 991px;
+    top: 820px;
+    position: absolute;
+  }
+  
+  .save-button-background {
+    width: 235px;
+    height: 69px;
+    background: #69ABC1;
+    border-radius: 8px;
+    position: absolute;
+  }
+  
+  .save-button-text {
+    width: 83px;
+    height: 45px;
+    left: 76px;
+    top: 12px;
+    position: absolute;
+    color: white;
+    font-size: 35px;
+    font-family: 'Bree-Serif';
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: Bree-Serif ;
+    src: url(./assets/BreeSerif-Regular.ttf);
+  }
