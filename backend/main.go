@@ -12,5 +12,5 @@ func main() {
 		panic("failed to connect database")
 	}
 
-	db.AutoMigrate(&entity.Airport{}, &entity.Admin{}, &entity.Airline{}, &entity.Flight{}, &entity.FlightDetails{}, &entity.FlightAndFlightDetails{}, &entity.TypeOfFlight{}, &entity.Member{}, &entity.Benefits{}, &entity.Request{}, &entity.Notification{}, &entity.Booking{}, &entity.Payment{})
+	db.AutoMigrate(&entity.Airport{}, &entity.Admin{}, &entity.Airline{}, &entity.Flight{}, &entity.FlightDetails{}, &entity.FlightAndFlightDetails{}, &entity.TypeOfFlight{}, &entity.Member{}, &entity.Benefits{}, &entity.Request{}, &entity.Notification{}, &entity.Booking{}, &entity.Payment{}, &entity.Point_Calculator{}, &entity.TypeOfFlight{}, &entity.Baggage{}, &entity.Booking_baggage{}, &entity.Booking_food_beverage{}, &entity.Booking_passenger{}, &entity.Booking_seat{}, &entity.Food_beverage{}, &entity.Passenger{}, &entity.Seat{})
 }

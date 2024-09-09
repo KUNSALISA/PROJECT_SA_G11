@@ -24,4 +24,6 @@ type Member struct {
 
 	// 1 member เป็นเจ้าของได้หลาย Notification
 	Notifications []Notification `gorm:"foreignKey:MemberID"`
+
+	Passenger []Passenger `gorm:"foreignKey:MemberID"`
 }
