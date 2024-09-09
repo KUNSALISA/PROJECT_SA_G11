@@ -1,0 +1,80 @@
+
+.image{
+    min-height: 90vh;
+    width: 100%;
+    background: linear-gradient(rgba(128, 200, 229, 0.7),rgba(0, 36, 58, 0.7)), url(../../assets/plane.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+}
+
+.Home{
+    display: flex;
+    width: 100%;
+    
+  }
+
+.image h1{
+    font-size: 58px;
+    color: #fff;
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.image h2{
+    font-size: 22px;
+    color: #fff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.searchflight{
+    position: absolute; /* กำหนด absolute เพื่อให้สามารถวางทับเหนือรูปภาพได้ */
+    bottom: -0px; /* ให้มันติดอยู่ใต้สุดของรูปภาพ */
+    left: 50%;
+    width: 900px;
+    transform: translateX(-50%); /* ทำให้มันอยู่กึ่งกลางของหน้าจอ */
+    background-color: #ca4242;
+    padding: 60px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input{
+    gap: 20px; /* เพิ่มช่องว่างระหว่างบรรทัด */ 
+    flex-direction: column; /* จัดองค์ประกอบในแนวตั้ง */
+    display: flex;
+}
+
+.input h1{
+    display: flex;
+    gap: 20px; /* เพิ่มช่องว่างระหว่าง Input และ DatePicker */
+}
+
+.input h2{
+    display: flex;
+    gap: 20px; 
+}
+
+.input input, .input .ant-picker {
+    padding: 3px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 100%; /* ให้ input ใช้ความกว้างเต็มที่ของ container */
+    max-width: 400px; /* กำหนดขนาดความกว้างสูงสุด */
+}
+
+.input .ant-inputnumber, .input .ant-cascader {
+    padding: 3px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 165px; /* กำหนดขนาดความกว้างสูงสุด */
+}
