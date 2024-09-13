@@ -16,5 +16,5 @@ type Request struct {
 
 	// MemberID ทำหน้าที่เป็น FK
 	MemberID *uint
-	Member   []Member `gorm:"foriegnKey:MemberID"`
+	Member   Member `gorm:"foreignKey:MemberID"`
 }

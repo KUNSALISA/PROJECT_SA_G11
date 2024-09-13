@@ -15,9 +15,9 @@ type Notification struct {
 
 	// MemberID ทำหน้าที่เป็น FK
 	MemberID *uint
-	Member   []Member `gorm:"foriegnKey:MemberID"`
+	Member   Member `gorm:"foreignKey:MemberID"`
 
 	// BenefitsID ทำหน้าที่เป็น FK
 	BenefitsID *uint
-	Benefits   []Benefits `gorm:"foriegnKey:BenefitID"`
+	Benefits   Benefits `gorm:"foreignKey:BenefitsID"`
 }
