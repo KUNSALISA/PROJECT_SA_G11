@@ -25,5 +25,5 @@ type Benefits struct {
 	Payment Payment `gorm:"foreignKey:BenefitID"`
 
 	// 1 Benefit เป็นเจ้าของได้หลาย Notification
-	Notifications []Notification `gorm:"foreignKey:BenefitID"`
+	Notifications []Notification `gorm:"foreignKey:BenefitsID"`
 }
