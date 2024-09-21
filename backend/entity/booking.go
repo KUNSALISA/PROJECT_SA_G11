@@ -16,6 +16,5 @@ type Booking struct {
 
 	Booking_passenger                 []Booking_passenger                 `gorm:"foreignKey:BookingID"`
 	Booking_baggage                   []Booking_baggage                   `gorm:"foreignKey:BookingID"`
-	Booking_food_beverage             []Booking_food_beverage             `gorm:"foreignKey:BookingID"`
 	Booking_flight_and_flight_details []Booking_flight_and_flight_details `gorm:"foreignKey:BookingID"`
 }
