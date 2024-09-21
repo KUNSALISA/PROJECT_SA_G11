@@ -1,51 +1,27 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/login/Login";
+import EditFlight from "./pages/editflight/EditFlight";
+import Flight from "./pages/flight/flight"; 
+import DateFlight from "./pages/dateflight/DateFlight";
+import AddFlight from "./pages/addflight/AddFlight";
 
-// function App() {
-//   const [count, setCount] = useState(0)
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/flight" element={<Flight />} />
+        <Route path="/date-flight" element={<DateFlight />} />
+        <Route path="/add-flight" element={<AddFlight />} /> 
+        <Route path="/edit-flight/:flightCode" element={<EditFlight />} />
+      </Routes>
+    </Router>
+  );
+}
 
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
+export default App;
 
 
 
-//  import { useState } from 'react';
-//  import AddFlight from './AddFlight'; 
-//  import EditFlight from './EditFlight'; 
-//  import Flight from './Flight';
-//  import DateFlight from './DateFlight';
 
-//  function App() {
-//    return (
-//      <div>
-//       <Flight />
-//     </div>
-//    );
-// }

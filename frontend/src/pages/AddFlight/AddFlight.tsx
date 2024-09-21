@@ -1,166 +1,374 @@
-// // import React from 'react';
-// // import './AddFlight.css'; 
-// // import FFF from './assets/FFF.png'
-// // import PPP from './assets/PPP.jpg'
-
-// // const AddFlight: React.FC = () => {
-// //   return (
-// //     <div className="container">
-// //       <div className="button button1" />
-// //       <div className="button button2" />
-// //       <div className="button button3" />
-// //       <div className="button button4" />
-// //       <div className="button button5" />
-// //       <div className="button button6" />
-// //       <div className="button button7" />
-// //       <div className="button button8" />
-// //       <div className="button button9" />
-// //       <div className="button button10" />
-// //       <div className="label label1">FlightCode</div>
-// //       <div className="label label2">Flying From</div>
-// //       <div className="label label3">Going To</div>
-// //       <div className="label label4">Schedule Start</div>
-// //       <div className="label label5">Schedule End</div>
-// //       <div className="label label6">Hour</div>
-// //       <div className="label label7">Cost</div>
-// //       <div className="label label8">Point</div>
-// //       <div className="label label9">Type</div>
-// //       <div className="label label10">Airline_ID</div>
-// //       <div className="header">
-// //         <div className="header-background" />
-// //         <div className="header-background" />
-// //         <img className="header-logo" src={FFF} alt="Logo" />
-// //         <div className="profile">
-// //           <div className="profile-background" />
-// //           <img className="profile-image" src={PPP} alt="Profile" />
-// //         </div>
-// //       </div>
-// //       <div className="home-button">
-// //         <div className="home-button-background" />
-// //         <div className="home-button-text">Home</div>
-// //       </div>
-// //       <div className="member-button">
-// //         <div className="member-button-background" />
-// //         <div className="member-button-text">MEMBER</div>
-// //       </div>
-// //       <div className="notification">
-// //         <div className="notification-border" />
-// //       </div>
-// //       <div className="save-button-bottom">
-// //         <div className="save-button-background" />
-// //         <div className="save-button-text">SAVE</div>
-// //       </div>
-// //     </div>
-// //   );
-// // }
-
-// // export default AddFlight;
-
-
 // import React from 'react';
-// import './AddFlight.css'; 
-// import FFF from './assets/FFF.png'
-// import PPP from './assets/PPP.jpg'
+// import { Form, Input, Button, DatePicker, Row, Col, Dropdown, Menu } from 'antd';
+// import { DownOutlined } from '@ant-design/icons';
+// import { useNavigate } from 'react-router-dom'; 
+// import './AddFlight.css';
+// import FFF from '../../assets/FFF.png'
+// import PPP from '../../assets/PPP.jpg'
 
-// type Props = {
-//   onPageChange?: (view: 'flight' | 'add' | 'edit' | 'date') => void;
-// };
+// const AddFlight: React.FC = () => {
+//   const [form] = Form.useForm();
+//   const navigate = useNavigate(); 
 
-// const AddFlight: React.FC<Props> = ({ onPageChange }) => {
-
-//   const handleHomeClick = () => {
-//     if (onPageChange) {
-//       onPageChange('flight'); // Change to 'flight' page
-//     }
+//   const onFinish = (values: any) => {
+//     console.log('Success:', values);
 //   };
 
-// //   const handleMemberClick = () => {
-// //     if (onPageChange) {
-// //       onPageChange('member'); // Change to 'member' page if applicable
-// //     }
-// //   };
-
-//   const handleSaveClick = () => {
-//     // Handle save action here
-//     alert('Flight details saved!');
+//   const onFinishFailed = (errorInfo: any) => {
+//     console.log('Failed:', errorInfo);
 //   };
+
+//   const handleLogout = () => {
+//     localStorage.removeItem('token');
+//     localStorage.removeItem('token_type');
+//     navigate('/');
+//   };
+
+//   const menu = (
+//     <Menu>
+//       <Menu.Item key="1" onClick={handleLogout}>
+//         Logout
+//       </Menu.Item>
+//     </Menu>
+//   );
 
 //   return (
-//     <div className="container">
-//       <div className="button button1" />
-//       <div className="button button2" />
-//       <div className="button button3" />
-//       <div className="button button4" />
-//       <div className="button button5" />
-//       <div className="button button6" />
-//       <div className="button button7" />
-//       <div className="button button8" />
-//       <div className="button button9" />
-//       <div className="button button10" />
-//       <div className="label label1">FlightCode</div>
-//       <div className="label label2">Flying From</div>
-//       <div className="label label3">Going To</div>
-//       <div className="label label4">Schedule Start</div>
-//       <div className="label label5">Schedule End</div>
-//       <div className="label label6">Hour</div>
-//       <div className="label label7">Cost</div>
-//       <div className="label label8">Point</div>
-//       <div className="label label9">Type</div>
-//       <div className="label label10">Airline_ID</div>
-//       <div className="header">
-//         <div className="header-background" />
-//         <div className="header-background" />
-//         <img className="header-logo" src={FFF} alt="Logo" />
-//         <div className="profile">
-//           <div className="profile-background" />
-//           <img className="profile-image" src={PPP} alt="Profile" />
+//     <div className="add-fligth-container">
+//       <div className="header-addf">
+//         <div className="button-group-addflight">
+//           <img src={FFF} alt="Logo" className="addf-logo" />
+//           <Button className="home-button-addf" shape="round" onClick={() => navigate('/flight')}>Home</Button>
+//         </div>
+
+//         <div className="profile-section-addf">
+//           <img src={PPP} alt="Profile" className="profile-image-addf" />
+//           <span className="user-name-addf">John Doe</span>
+//           <Dropdown overlay={menu}>
+//             <Button>
+//               <DownOutlined />
+//             </Button>
+//           </Dropdown>
 //         </div>
 //       </div>
-//       <div className="home-button" onClick={handleHomeClick}>
-//         <div className="home-button-background" />
-//         <div className="home-button-text">Home</div>
-//       </div>
-//       {/* <div className="member-button" onClick={handleMemberClick}>
-//         <div className="member-button-background" />
-//         <div className="member-button-text">MEMBER</div>
-//       </div> */}
-//       <div className="notification">
-//         <div className="notification-border" />
-//       </div>
-//       <div className="save-button-bottom" onClick={handleSaveClick}>
-//         <div className="save-button-background" />
-//         <div className="save-button-text">SAVE</div>
+
+//       <div className="form-container-addf">
+//         <Form
+//           form={form}
+//           name="addFlight"
+//           layout="vertical"
+//           onFinish={onFinish}
+//           onFinishFailed={onFinishFailed}
+//         >
+//           {/* โค้ดฟอร์มที่เหลือเหมือนเดิม */}
+//           <Row gutter={16}>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="FlightCode"
+//                 name="flightCode"
+//                 rules={[{ required: true, message: 'Please input FlightCode!' }]}
+//               >
+//                 <Input placeholder="FlightCode" />
+//               </Form.Item>
+//             </Col>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Type"
+//                 name="type"
+//                 rules={[{ required: true, message: 'Please input Type!' }]}
+//               >
+//                 <Input placeholder="Type" />
+//               </Form.Item>
+//             </Col>
+//           </Row>
+
+//           <Row gutter={16}>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Flying From"
+//                 name="flyingFrom"
+//                 rules={[{ required: true, message: 'Please input Flying From!' }]}
+//               >
+//                 <Input placeholder="Flying From" />
+//               </Form.Item>
+//             </Col>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Going To"
+//                 name="goingTo"
+//                 rules={[{ required: true, message: 'Please input Going To!' }]}
+//               >
+//                 <Input placeholder="Going To" />
+//               </Form.Item>
+//             </Col>
+//           </Row>
+
+//           <Row gutter={16}>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Schedule Start"
+//                 name="scheduleStart"
+//                 rules={[{ required: true, message: 'Please select Schedule Start!' }]}
+//               >
+//                 <DatePicker placeholder="Select date" style={{ width: '100%' }} />
+//               </Form.Item>
+//             </Col>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Schedule End"
+//                 name="scheduleEnd"
+//                 rules={[{ required: true, message: 'Please select Schedule End!' }]}
+//               >
+//                 <DatePicker placeholder="Select date" style={{ width: '100%' }} />
+//               </Form.Item>
+//             </Col>
+//           </Row>
+
+//           <Row gutter={16}>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Hour"
+//                 name="hour"
+//                 rules={[{ required: true, message: 'Please input Hour!' }]}
+//               >
+//                 <Input placeholder="Hour" />
+//               </Form.Item>
+//             </Col>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Airline_ID"
+//                 name="airlineId"
+//                 rules={[{ required: true, message: 'Please input Airline_ID!' }]}
+//               >
+//                 <Input placeholder="Airline_ID" />
+//               </Form.Item>
+//             </Col>
+//           </Row>
+
+//           <Row gutter={16}>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Cost"
+//                 name="cost"
+//                 rules={[{ required: true, message: 'Please input Cost!' }]}
+//               >
+//                 <Input placeholder="Cost" />
+//               </Form.Item>
+//             </Col>
+//             <Col span={12}>
+//               <Form.Item
+//                 label="Point"
+//                 name="point"
+//                 rules={[{ required: true, message: 'Please input Point!' }]}
+//               >
+//                 <Input placeholder="Point" />
+//               </Form.Item>
+//             </Col>
+//           </Row>
+
+//           <Form.Item>
+//           <Button className="save-button-addf" shape="round" htmlType="submit" block>SAVE</Button>
+//           </Form.Item>
+//         </Form>
 //       </div>
 //     </div>
 //   );
-// }
+// };
 
 // export default AddFlight;
 
 
 import React from 'react';
-import './AddFlight.css'; 
-import FFF from './assets/FFF.png'
-import PPP from './assets/PPP.jpg'
+import { Form, Input, Button, DatePicker, Row, Col, Dropdown, Menu, message } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom'; 
+import axios from 'axios';
+import './AddFlight.css';
+import FFF from '../../assets/FFF.png'
+import PPP from '../../assets/PPP.jpg'
 
-interface Props {
-  onGoHome: () => void;
-}
+const AddFlight: React.FC = () => {
+  const [form] = Form.useForm();
+  const navigate = useNavigate(); 
 
-const AddFlight: React.FC<Props> = ({ onGoHome }) => {
+  const onFinish = async (values: any) => {
+    try {
+      const response = await axios.post('http://localhost:8080/createFlightDetails', {
+        flight_code: values.flightCode,
+        schedule_start: values.scheduleStart.format('YYYY-MM-DD'), 
+        schedule_end: values.scheduleEnd.format('YYYY-MM-DD'),
+        hour: values.hour,
+        cost: values.cost,
+        point: values.point,
+        airline_id: values.airlineId, 
+        flying_from_id: values.flyingFrom,
+        going_to_id: values.goingTo,
+        type_id: values.type,
+      });
+      message.success('Flight added successfully');
+      navigate('/flight');
+    } catch (error) {
+      console.error('Failed to add flight:', error);
+      message.error('Failed to add flight');
+    }
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('token_type');
+    navigate('/');
+  };
+
+  const menu = (
+    <Menu>
+      <Menu.Item key="1" onClick={handleLogout}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
-    <div className="container">
-      <div className="header">
-        <img className="header-logo" src={FFF} alt="Logo" />
-        <div className="profile">
-          <div className="profile-background" />
-          <img className="profile-image" src={PPP} alt="Profile" />
+    <div className="add-fligth-container">
+      <div className="header-addf">
+        <div className="button-group-addflight">
+          <img src={FFF} alt="Logo" className="addf-logo" />
+          <Button className="home-button-addf" shape="round" onClick={() => navigate('/flight')}>Home</Button>
         </div>
-        <button className="home-btn" onClick={onGoHome}>Home</button>
+
+        <div className="profile-section-addf">
+          <img src={PPP} alt="Profile" className="profile-image-addf" />
+          <span className="user-name-addf">John Doe</span>
+          <Dropdown overlay={menu}>
+            <Button>
+              <DownOutlined />
+            </Button>
+          </Dropdown>
+        </div>
       </div>
-      {/* Your other content */}
+
+      <div className="form-container-addf">
+        <Form
+          form={form}
+          name="addFlight"
+          layout="vertical"
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+        >
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                label="Flight Code"
+                name="flightCode"
+                rules={[{ required: true, message: 'Please input Flight Code!' }]}
+              >
+                <Input placeholder="Flight Code" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="Type"
+                name="type"
+                rules={[{ required: true, message: 'Please input Type!' }]}
+              >
+                <Input placeholder="Type" />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                label="Flying From"
+                name="flyingFrom"
+                rules={[{ required: true, message: 'Please input Flying From!' }]}
+              >
+                <Input placeholder="Flying From" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="Going To"
+                name="goingTo"
+                rules={[{ required: true, message: 'Please input Going To!' }]}
+              >
+                <Input placeholder="Going To" />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                label="Schedule Start"
+                name="scheduleStart"
+                rules={[{ required: true, message: 'Please select Schedule Start!' }]}
+              >
+                <DatePicker placeholder="Select date" style={{ width: '100%' }} />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="Schedule End"
+                name="scheduleEnd"
+                rules={[{ required: true, message: 'Please select Schedule End!' }]}
+              >
+                <DatePicker placeholder="Select date" style={{ width: '100%' }} />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                label="Hour"
+                name="hour"
+                rules={[{ required: true, message: 'Please input Hour!' }]}
+              >
+                <Input placeholder="Hour" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="Airline ID"
+                name="airlineId"
+                rules={[{ required: true, message: 'Please input Airline ID!' }]}
+              >
+                <Input placeholder="Airline ID" />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                label="Cost"
+                name="cost"
+                rules={[{ required: true, message: 'Please input Cost!' }]}
+              >
+                <Input placeholder="Cost" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="Point"
+                name="point"
+                rules={[{ required: true, message: 'Please input Point!' }]}
+              >
+                <Input placeholder="Point" />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          <Form.Item>
+            <Button className="save-button-addf" shape="round" htmlType="submit" block>SAVE</Button>
+          </Form.Item>
+        </Form>
+      </div>
     </div>
   );
-}
+};
 
 export default AddFlight;
