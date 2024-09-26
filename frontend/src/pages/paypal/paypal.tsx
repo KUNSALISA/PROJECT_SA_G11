@@ -1,51 +1,201 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './paypal.css';
+import React, { useState } from 'react';
+import { Layout, Divider, List, Typography, Button, Card, Form, Input, Flex } from 'antd';
+import { usePaymentService } from './paymentService';
+import { useBookingService } from './bookingService';
+import { Payment } from './payment.interface';
+import imageSrc from './Screenshot 2024-09-19 023621.png';
 
-const PaypalFlightComponent = () => {
-  return (
-    <div className="container">
-      <h2>paypal Page</h2>
-      <p>This is the paypal page content.</p>
-      <div className="left-box" />
-      <div className="click-box">
-        <div className="click-text">Click</div>
-      </div>
-      <div className="paypal-text">Paypal</div>
-      <div className="right-box" />
-      <div className="flight-text">Flight</div>
-      <div className="total-box" />
-      <div className="total-text"><br />Total</div>
-      <Link to="/payment" className="small-icon" style={{ left: 1354, top: 957 }}></Link>
-      <div className="payment-status-box" />
-      <div className="payment-status-text">Payment Status :</div>
-      <div className="header">
-        <div className="header-content">
-          <div className="header-background" />
-          <img className="header-logo" src="https://via.placeholder.com/162x128" alt="Logo" />
-        </div>
-        <div className="profile-box">
-          <div className="profile-background" />
-          <img className="profile-image" src="https://via.placeholder.com/113x109" alt="Profile" />
-        </div>
-        </div>
-        <div className="nav-item" style={{ left: 269, top: 59, position: 'absolute' }}>
-          <div className="nav-item-text1">Home</div>
-        </div>
-        <div className="nav-item" style={{ left: 414, top: 59, position: 'absolute' }}>
-          <div className="nav-item-text2">Flight</div>
-        </div>
-        <div className="nav-item" style={{ left: 559, top: 59, position: 'absolute' }}>
-          <div className="nav-item-text3">Benefits</div>
-        </div>
-        <div className="nav-item" style={{ left: 704, top: 59, position: 'absolute' }}>
-          <div className="nav-item-text4">Help Center</div>
-        </div>
-        <div className="nav-item" style={{ left: 1155, top: 59, position: 'absolute' }}>
-          <div className="nav-item-text">MEMBER</div>
-        </div>
-    </div>
-  );
-}
 
-export default PaypalFlightComponent;
+
+const { Header, Footer, Content } = Layout;
+
+const headerStyle: React.CSSProperties = {
+    display: 'flex',           // Use flexbox for alignment
+    alignItems: 'center',       // Center vertically
+    color: '#fff',
+    height: 64,
+    paddingInline: 48,
+    lineHeight: '64px',
+    backgroundColor: '#69ABC1',
+    width: '100vw',             // Full width of the viewport
+  };
+  const contentStyle: React.CSSProperties = {
+    minHeight: 'calc(100vh - 128px)',  // Full height minus header and footer
+    lineHeight: '120px',
+    backgroundColor: '#FFFFFF',
+    width: '100vw',  // Full width of the viewport
+  };
+  
+  const footerStyle: React.CSSProperties = {
+    backgroundColor: '#FFFFFF',
+    height: 64,
+    width: '100vw',  // Full width of the viewport
+  };
+  
+  const layoutStyle: React.CSSProperties = {
+    borderRadius: 0,  // No border radius for full screen
+    overflow: 'hidden',
+    width: '100vw',  // Full width
+    height: '100vh',  // Full height
+  };
+  const buttonStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#5F212E',
+    paddingInline: 24,
+    backgroundColor: '#FFFFFF',
+    
+  };
+
+  const buttonclickStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#FFFFFF',
+    backgroundColor: '#69ABC1',
+    margin: '0'
+  };
+
+  const buttoncodeStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#FFFFFF',
+    backgroundColor: '#69ABC1',
+     marginLeft: '10px'
+  };
+
+  const listStyle: React.CSSProperties = { 
+    padding: '20px 40px',
+    width: '50%',           
+    marginLeft: '5%',
+          
+  };
+
+  const inputContainerStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',  // จัดให้ทั้ง Input และ Button อยู่ตรงกลางแนวแกน Y
+  };
+
+  const headerContainerStyle: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',  // จัดให้ทั้ง Input และ Button อยู่ตรงกลางแนวแกน Y
+  };
+
+  const cardStyle: React.CSSProperties = {
+    width: '30%',
+    marginRight: '5%',
+    marginTop: '-100px',  // เพิ่ม margin-top เพื่อให้ขนานกับ List
+  };
+  
+  const data = [
+    'Paypal'
+  ];
+
+  const Paypal: React.FC = () => {
+    const [voucherCode, setVoucherCode] = useState<string>(''); // Voucher code from input
+    const [paymentStatus, setPaymentStatus] = useState<string>('Pending'); // Payment status
+    const [totalPrice, setTotalPrice] = useState<number>(0); // Total price เริ่มต้นที่ 0
+    const { createPayment } = usePaymentService(); // ใช้ payment service
+    const { getBookingById } = useBookingService(); // ใช้ booking service เพื่อดึงการจอง
+    
+    
+    const applyVoucherCode = () => {
+      // สมมุติว่า 'PROMO100' เป็น Voucher ที่ถูกต้องเพื่อลดราคา 100%
+      if (voucherCode === 'PROMO100') {
+        setTotalPrice(0); // ลด totalPrice เป็น 0
+        alert('Voucher applied! Total price is now 0 THB.');
+      } else {
+        alert('Invalid voucher code. Please try again.');
+      }
+    };
+  
+    const bookingId = 2; // รหัสการจองที่ต้องการแสดง (ตัวอย่าง)
+  
+    // เมื่อเริ่มต้น ให้ดึงข้อมูลการจองและอัปเดต totalPrice
+    React.useEffect(() => {
+      const booking = getBookingById(bookingId);
+      if (booking) {
+        setTotalPrice(booking.TotalPrice); // อัปเดต TotalPrice จากการจอง
+      }
+    }, [getBookingById, bookingId]);
+  
+    // Handle payment
+    const handlePayment = () => {
+      const newPayment = {
+        PaymentStatus: true, // สถานะการชำระเงินเป็น true เมื่อต้องการจ่าย
+        MemberID: 2, // ต้องแทนที่ด้วย ID ที่เหมาะสม
+        BookingID: bookingId, // ใช้ BookingID ที่เราเลือก
+        BenefitID: 1, // ต้องแทนที่ด้วย ID ที่เหมาะสม
+        amount: totalPrice,
+        voucherCode: voucherCode || null,
+      };
+  
+      const createdPayment = createPayment(newPayment);
+      if (createdPayment) {
+        setPaymentStatus('Paid');
+        alert(`Payment successful with bank: `);
+      } else {
+        alert('Payment failed. Please try again.');
+      }
+    };
+  
+    return (
+      <Layout style={layoutStyle}>
+        <Header style={headerStyle}>
+          <div className="container">
+          <div className='topbar'>
+                <div style={headerContainerStyle}>
+                    <img src={imageSrc} alt="description" style={{ width: '10%', height: '10%',marginRight: '5%' }} /> 
+                    <Flex gap="small" wrap>
+                      <Button type="primary" style={buttonStyle}>Home</Button>
+                      <Button type="primary" style={buttonStyle}>Fight</Button>
+                      <Button type="primary" style={buttonStyle}>Benefits</Button>
+                      <Button type="primary" style={buttonStyle}>Help Center</Button>
+                    </Flex>
+                    </div>
+               </div>
+          </div>
+        </Header>
+  
+        <Content style={contentStyle}>
+          <Divider orientation="left" />
+          <List
+            bordered
+            dataSource={data}
+            style={listStyle}
+            renderItem={(item) => (
+              <List.Item>
+                <Typography.Text>{item}</Typography.Text>
+                <Button type="primary" style={buttonclickStyle} onClick={handlePayment} >Click</Button>
+              </List.Item>
+            )}
+          />
+  
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Card title="Payment" bordered={false} style={cardStyle}>
+              <Form layout="vertical">
+                <Form.Item label="Voucher/Promo Code">
+                  <div style={inputContainerStyle}>
+                    <Input
+                      value={voucherCode}
+                      onChange={(e) => setVoucherCode(e.target.value)} // Handle voucherCode
+                      style={{ flex: 1 }}
+                      placeholder="Enter voucher code"
+                    />
+                    <Button type="primary" style={buttoncodeStyle} onClick={applyVoucherCode}>Apply</Button>
+                  </div>
+                </Form.Item>
+  
+                <Divider />
+                <p>Flight: Example Flight</p>
+                <p>Total: {totalPrice} THB</p>
+                <p>Payment Status: {paymentStatus}</p>
+              </Form>
+            </Card>
+          </div>
+        </Content>
+  
+        <Footer style={footerStyle}>Mock Payment System ©2023</Footer>
+      </Layout>
+    );
+  };
+  
+  export default Paypal;
+  
+  
