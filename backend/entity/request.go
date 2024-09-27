@@ -6,13 +6,13 @@ import (
 
 type Request struct {
 	gorm.Model
-	Category     string
-	First_Name   string
-	Last_Name    string
-	Email        string
-	Subject      string
-	Mobile_Phone string
-	Message      string
+	Category    string `json:"category"`
+	FirstName   string `json:"first_name"`
+	LastName    string `json:"last_name"`
+	Email       string `json:"email"`
+	Subject     string `json:"subject"`
+	MobilePhone string `json:"mobile_phone"`
+	Message     string `json:"message"`
 
 	// MemberID ทำหน้าที่เป็น FK
 	MemberID *uint

@@ -1,17 +1,17 @@
 package entity
 
 import (
-	"time"
+	/* "time" */
 
 	"gorm.io/gorm"
 )
 
 type Notification struct {
 	gorm.Model
-	Read      bool
-	Create_At time.Time
-	Update_At time.Time
-	Context   string
+	Read bool `json:"read"`
+	/* CreateAt time.Time `json:"creat_at"`
+	UpdateAt time.Time `json:"update_at"` */
+	Context string `json:"context"`
 
 	// MemberID ทำหน้าที่เป็น FK
 	MemberID *uint

@@ -33,6 +33,10 @@ func SetupDatabase() {
 		&entity.FlightAndFlightDetails{},
 		&entity.FlightDetails{},
 		&entity.TypeOfFlight{},
+		&entity.Member{},
+		&entity.Benefits{},
+		&entity.Notification{},
+		&entity.Request{},
 	)
 	db = database
 
@@ -152,6 +156,57 @@ func SetupDatabase() {
 		db.Where(entity.FlightDetails{FlightCode: flightDetail.FlightCode}).
 			Assign(flightDetail).FirstOrCreate(&flightDetail)
 	}
+
+	// Hash รหัสผ่าน
+	hashedPassword, _ = HashPassword("160593")
+
+	// กำหนดวันเกิดในรูปแบบที่ถูกต้อง
+	Birthday, _ := time.Parse("2006-01-02", "1993-05-16")
+
+	// กำหนดข้อมูลสมาชิก
+	Member := &entity.Member{
+		Password:    hashedPassword,
+		Email:       "iu@gmail.com",
+		FirstName:   "Jieun",
+		LastName:    "Lee",
+		Birthday:    Birthday,
+		Gender:      "Female",
+		TotalPoint: 16593,
+	}
+
+	// ตรวจสอบและสร้างสมาชิกถ้าไม่พบในระบบ
+	db.FirstOrCreate(Member, &entity.Member{
+		Email: "iu@gmail.com",
+	})
+
+	Notification := &entity.Notification{
+		Read:    false,
+		Context: "บินฟรีเชียงใหม่-สมุย เพียงใช้คะแนนสะสม 9000 คะแนน",
+	}
+
+	db.FirstOrCreate(Notification, &entity.Notification{
+		Context: "บินฟรีเชียงใหม่-สมุย เพียงใช้คะแนนสะสม 9000 คะแนน",
+	})
+
+	Request := &entity.Request{
+		Category:    "Payment",
+		FirstName:   "Jieun",
+		LastName:    "Lee",
+		Email:       "iu@gmail.com",
+		Subject:     "ปัญหาการชำระเงิน",
+		MobilePhone: "0987654321",
+		Message:     "ชำระเงิน...",
+	}
+
+	db.FirstOrCreate(Request, &entity.Request{
+		Category:    "Payment",
+		FirstName:   "Jieun",
+		LastName:    "Lee",
+		Email:       "iu@gmail.com",
+		Subject:     "ปัญหาการชำระเงิน",
+		MobilePhone: "0987654321",
+		Message:     "ชำระเงิน...",
+	})
 }
 
 // package config

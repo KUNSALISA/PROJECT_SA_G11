@@ -9,8 +9,6 @@ import (
 const PORT = "8080"
 
 func main() {
-	// เชื่อมต่อฐานข้อมูล
-	config.ConnectionDB()
 	// เริ่มต้นเชื่อมต่อกับฐานข้อมูล
 	config.SetupDatabase()
 
