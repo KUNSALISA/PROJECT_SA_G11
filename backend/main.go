@@ -9,6 +9,8 @@ import (
 const PORT = "8080"
 
 func main() {
+	// เชื่อมต่อฐานข้อมูล
+	config.ConnectionDB()
 	// เริ่มต้นเชื่อมต่อกับฐานข้อมูล
 	config.SetupDatabase()
 
@@ -48,6 +50,19 @@ func main() {
 	r.PUT("/flight-and-flight-details/:id", controllers.UpdateFlightAndFlightDetails)
 	r.DELETE("/flight-and-flight-details/:id", controllers.DeleteFlightAndFlightDetails)
 
+	// กำหนด routes สำหรับ notifications
+	r.GET("/notifications", controllers.GetNotifications)
+	r.GET("/notifications/:id", controllers.GetNotificationByID)
+	r.POST("/notifications", controllers.CreateNotification)
+	r.PUT("/notifications/:id", controllers.UpdateNotification)
+	r.DELETE("/notifications/:id", controllers.DeleteNotification)
+
+	// กำหนด routes สำหรับ requests
+	r.GET("/requests", controllers.GetRequests)
+	r.GET("/requests/:id", controllers.GetRequestByID)
+	r.POST("/requests", controllers.CreateRequest)
+	r.PUT("/requests/:id", controllers.UpdateRequest)
+	r.DELETE("/requests/:id", controllers.DeleteRequest)
 	// รันเซิร์ฟเวอร์ที่พอร์ตที่กำหนด
 	r.Run("localhost:" + PORT)
 }
