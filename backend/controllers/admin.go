@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 
+	"github.com/KUNSALISA/PROJECT_SA_G11/config"
 	"github.com/KUNSALISA/PROJECT_SA_G11/entity"
 	"github.com/KUNSALISA/PROJECT_SA_G11/services"
 	"github.com/gin-gonic/gin"
@@ -21,7 +22,7 @@ func LoginByUsername(c *gin.Context) {
 	}
 
 	var admin entity.Admin
-	if err := entity.DB().Where("email = ?", login.Email).First(&admin).Error; err != nil {
+	if err := config.DB().Where("email = ?", login.Email).First(&admin).Error; err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "User not found"})
 		return
 	}
@@ -58,7 +59,7 @@ func RegisterAdmin(c *gin.Context) {
 
 	}
 
-	db := entity.DB()
+	db := config.DB()
 
 	var userCheck entity.Admin
 
@@ -80,7 +81,7 @@ func RegisterAdmin(c *gin.Context) {
 
 	}
 
-	hashedPassword, _ := entity.HashPassword(payload.Password)
+	hashedPassword, _ := config.HashPassword(payload.Password)
 	user := entity.Admin{
 		Email:     payload.Email,
 		Password:  hashedPassword,
@@ -100,31 +101,3 @@ func RegisterAdmin(c *gin.Context) {
 
 }
 
-// func RegisterAdmin(c *gin.Context) {
-// 	var newAdmin entity.Admin
-
-// 	if err := c.ShouldBindJSON(&newAdmin); err != nil {
-// 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON"})
-// 		return
-// 	}
-
-// 	// ตรวจสอบการแปลงค่าที่รับเข้ามาถูกต้องหรือไม่
-// 	if newAdmin.Birthday.IsZero() {
-// 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid birthday format"})
-// 		return
-// 	}
-
-// 	hashedPassword, err := entity.HashPassword(newAdmin.Password)
-// 	if err != nil {
-// 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error hashing password"})
-// 		return
-// 	}
-// 	newAdmin.Password = hashedPassword
-
-// 	if err := entity.DB().Create(&newAdmin).Error; err != nil {
-// 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error creating user"})
-// 		return
-// 	}
-
-// 	c.JSON(http.StatusOK, gin.H{"message": "User created successfully"})
-// }

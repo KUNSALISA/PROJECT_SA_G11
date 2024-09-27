@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"example.com/paymentSystem/config"
-	"example.com/paymentSystem/entity"
+	"github.com/KUNSALISA/PROJECT_SA_G11/config"
+	"github.com/KUNSALISA/PROJECT_SA_G11/entity"
 	"github.com/gin-gonic/gin"
 )
 
