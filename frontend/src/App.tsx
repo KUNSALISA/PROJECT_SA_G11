@@ -52,7 +52,7 @@ function App() {
         <Route path="/date-flight" element={<DateFlight />} />
         <Route path="/add-flight" element={<AddFlight />} /> 
         <Route path="/edit-flight/:id" element={<EditFlight />} />
-        <Route path="/" element={<HelpCenterPage />} />
+        <Route path="/helpcenter" element={<HelpCenterPage />} />
       </Routes>
     </Router>
   );
