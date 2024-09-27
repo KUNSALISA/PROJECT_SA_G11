@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/KUNSALISA/PROJECT_SA_G11/config"
-	"github.com/KUNSALISA/PROJECT_SA_G11/controller"
+	"github.com/KUNSALISA/PROJECT_SA_G11/controllers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,34 +19,34 @@ func main() {
 	r.Use(CORSMiddleware())
 
 	// เส้นทางทั้งหมดจะไม่ต้องยืนยันตัวตน
-	r.POST("/login", controller.LoginByUsername)
-	r.POST("/register", controller.RegisterAdmin)
+	r.POST("/login", controllers.LoginByUsername)
+	r.POST("/register", controllers.RegisterAdmin)
 
 	// Airline routes
-	r.GET("/airline", controller.GetAirline)
-	r.GET("/airline/:ID", controller.GetAirlineByID)
+	r.GET("/airline", controllers.GetAirline)
+	r.GET("/airline/:ID", controllers.GetAirlineByID)
 
 	// Airport routes
-	r.GET("/airport", controller.GetAirports)
-	r.GET("/airport/:ID", controller.GetAirportByID)
+	r.GET("/airport", controllers.GetAirports)
+	r.GET("/airport/:ID", controllers.GetAirportByID)
 
 	// TypeOfFlight routes
-	r.GET("/TypeOfFlight", controller.GetTypeOfFlight)
-	r.GET("/TypeOfFlight/:ID", controller.GetTypeOfFlightByID)
+	r.GET("/TypeOfFlight", controllers.GetTypeOfFlight)
+	r.GET("/TypeOfFlight/:ID", controllers.GetTypeOfFlightByID)
 
 	// FlightDetails routes
-	r.POST("/flight-details", controller.CreateFlightDetails)
-	r.GET("/flight-details", controller.GetFlightDetails)
-	r.GET("/flight-details/:id", controller.GetFlightDetailsByID)
-	r.PATCH("/flight-details", controller.UpdateFlightDetails)
-	r.DELETE("/flight-details/:id", controller.DeleteFlightDetails)
+	r.POST("/flight-details", controllers.CreateFlightDetails)
+	r.GET("/flight-details", controllers.GetFlightDetails)
+	r.GET("/flight-details/:id", controllers.GetFlightDetailsByID)
+	r.PATCH("/flight-details", controllers.UpdateFlightDetails)
+	r.DELETE("/flight-details/:id", controllers.DeleteFlightDetails)
 
 	// Flight and FlightDetails combined routes
-	r.POST("/flight-and-flight-details", controller.CreateFlightAndFlightDetails)
-	r.GET("/flight-and-flight-details", controller.GetFlightAndFlightDetails)
-	r.GET("/flight-and-flight-details/:id", controller.GetFlightAndFlightDetailsByID)
-	r.PUT("/flight-and-flight-details/:id", controller.UpdateFlightAndFlightDetails)
-	r.DELETE("/flight-and-flight-details/:id", controller.DeleteFlightAndFlightDetails)
+	r.POST("/flight-and-flight-details", controllers.CreateFlightAndFlightDetails)
+	r.GET("/flight-and-flight-details", controllers.GetFlightAndFlightDetails)
+	r.GET("/flight-and-flight-details/:id", controllers.GetFlightAndFlightDetailsByID)
+	r.PUT("/flight-and-flight-details/:id", controllers.UpdateFlightAndFlightDetails)
+	r.DELETE("/flight-and-flight-details/:id", controllers.DeleteFlightAndFlightDetails)
 
 	// รันเซิร์ฟเวอร์ที่พอร์ตที่กำหนด
 	r.Run("localhost:" + PORT)

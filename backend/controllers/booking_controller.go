@@ -84,7 +84,7 @@
 //     c.JSON(http.StatusOK, gin.H{"data": booking})
 // }
 
-package controller
+package controllers
 
 import (
 	"net/http"

@@ -90,7 +90,7 @@
 //     c.JSON(http.StatusOK, gin.H{"data": member})
 // }
 
-package controller
+package controllers
 
 import (
 	"net/http"
