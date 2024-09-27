@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/KUNSALISA/ManageFlight/services"
+	"github.com/KUNSALISA/PROJECT_SA_G11/services"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
