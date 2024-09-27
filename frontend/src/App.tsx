@@ -33,15 +33,13 @@
 // export default App;
 
 
-import React from "react";
+/* import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from 'react';
 import Login from "./pages/login/Login";
 import EditFlight from "./pages/editflight/EditFlight";
 import Flight from "./pages/flight/flight"; 
 import DateFlight from "./pages/dateflight/DateFlight";
 import AddFlight from "./pages/addflight/AddFlight";
-import HelpCenterPage from './pages/HelpCenter/HelpCenterPage';
 
 function App() {
   return (
@@ -52,14 +50,28 @@ function App() {
         <Route path="/date-flight" element={<DateFlight />} />
         <Route path="/add-flight" element={<AddFlight />} /> 
         <Route path="/edit-flight/:id" element={<EditFlight />} />
-        <Route path="/helpcenter" element={<HelpCenterPage />} />
       </Routes>
     </Router>
   );
 }
 
+export default App; */
+
+
+import { useState } from 'react';
+import HelpCenterPage from './pages/HelpCenter/HelpCenterPage';
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+    <div>
+      <HelpCenterPage />
+    </div>
+    </>
+  )
+}
+
 export default App;
-
-
-
 

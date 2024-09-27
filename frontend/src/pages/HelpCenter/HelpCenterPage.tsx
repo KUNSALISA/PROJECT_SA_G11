@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import './HelpCenterPage.css';  
-import logo from './assets/logo.png';
+import logo from '../../assets/logo.png';
 import emailjs from 'emailjs-com'; 
 import { GetNotifications, sendDataToBackend } from '../../Service/helpindex'; 
 import { MyinboxInterface } from '../../interfaces/myinbox'; 
