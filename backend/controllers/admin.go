@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/KUNSALISA/ManageFlight/entity"
-	"github.com/KUNSALISA/ManageFlight/services"
+	"github.com/KUNSALISA/PROJECT_SA_G11/entity"
+	"github.com/KUNSALISA/PROJECT_SA_G11/services"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"

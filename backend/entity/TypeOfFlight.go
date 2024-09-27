@@ -6,7 +6,7 @@ import (
 
 type TypeOfFlight struct {
 	gorm.Model
-	TypeFlight string `json:"type"`
+	TypeFlight string
 
 	Type []FlightDetails `gorm:"foreignKey:TypeID"`
 }

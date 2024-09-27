@@ -1,9 +1,10 @@
-package entity
+package config
 
 import (
 	"fmt"
 	"time"
-
+	
+	"github.com/KUNSALISA/PROJECT_SA_G11/entity"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

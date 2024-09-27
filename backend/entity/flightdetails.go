@@ -8,24 +8,24 @@ import (
 
 type FlightDetails struct {
 	gorm.Model
-	FlightCode    string    `json:"flight_code"`
-	ScheduleStart time.Time `json:"schedule_start"`
-	ScheduleEnd   time.Time `json:"schedule_end"`
-	Hour          uint8     `json:"hour"`
-	Cost          uint8     `json:"cost"`
-	Point         uint8     `json:"point"`
+	FlightCode    string    
+	ScheduleStart time.Time
+	ScheduleEnd   time.Time 
+	Hour          uint16    
+	Cost          uint16    
+	Point         uint16    
 
 	AirlineID *uint
-	Airline   Airline `gorm:"foriegnKey:AirlineID"`
+	Airline   Airline `gorm:"foreignKey:AirlineID"`
 
 	FlyingFromID *uint
-	FlyingFrom   Airport `gorm:"foriegnKey:FlyingFromID"`
+	FlyingFrom   Airport `gorm:"foreignKey:FlyingFromID"`
 
 	GoingToID *uint
-	GoingTo   Airport `gorm:"foriegnKey:GoingToID"`
+	GoingTo   Airport `gorm:"foreignKey:GoingToID"`
 
 	TypeID *uint
-	Type   TypeOfFlight `gorm:"foriegnKey:TypeID"`
+	Type   TypeOfFlight `gorm:"foreignKey:TypeID"`
 
 	FlightDetail []FlightAndFlightDetails `gorm:"foreignKey:FlightDetailID"`
 }

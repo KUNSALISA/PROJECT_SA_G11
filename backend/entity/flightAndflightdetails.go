@@ -1,20 +1,21 @@
 package entity
 
 import (
+	"time"
+
 	"gorm.io/gorm"
 )
 
 type FlightAndFlightDetails struct {
 	gorm.Model
 
-	FlightID *uint
-	Flight   Flight `gorm:"foriegnKey:FlightID"`
+	FlightDate time.Time 
 
 	FlightDetailID *uint
-	FlightDetail   FlightDetails `gorm:"foriegnKey:FlightDetailID"`
+	FlightDetail   FlightDetails `gorm:"foreignKey:FlightDetailID"`
 
 	AdminID *uint
-	Admin   Admin `gorm:"foriegnKey:AdminID"`
+	Admin   Admin `gorm:"foreignKey:admin_id"`
 
 	Booking_flight_and_flight_details []Booking_flight_and_flight_details `gorm:"foreignKey:FlightAndFlightDetailsID"`
 }
