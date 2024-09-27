@@ -30,7 +30,7 @@
 .home-button-addf-fd {
   display: flex;
   margin-top: 1%;
-  margin-left: -60%;
+  margin-left: -72%;
   background-color: #ffffff;
   border: 2px solid #D4E9E2;
   color: #600;
@@ -69,8 +69,10 @@
 
 
 .filter-section-addf-fd {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   padding: 1% 2%;
+  margin-left: 70%;
+  margin-right: -70%;
 }
 
 .date-picker-addf-fd {
@@ -84,18 +86,5 @@
 
 .filter-table-fd {
   padding: 0% 1%;
-} */
+} 
 
-
- /* body {
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.ant-table {
-  margin-top: 20px;
-} */

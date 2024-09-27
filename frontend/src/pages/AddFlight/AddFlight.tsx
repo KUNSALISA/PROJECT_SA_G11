@@ -1,374 +1,228 @@
-// import React from 'react';
-// import { Form, Input, Button, DatePicker, Row, Col, Dropdown, Menu } from 'antd';
-// import { DownOutlined } from '@ant-design/icons';
-// import { useNavigate } from 'react-router-dom'; 
-// import './AddFlight.css';
-// import FFF from '../../assets/FFF.png'
-// import PPP from '../../assets/PPP.jpg'
-
-// const AddFlight: React.FC = () => {
-//   const [form] = Form.useForm();
-//   const navigate = useNavigate(); 
-
-//   const onFinish = (values: any) => {
-//     console.log('Success:', values);
-//   };
-
-//   const onFinishFailed = (errorInfo: any) => {
-//     console.log('Failed:', errorInfo);
-//   };
-
-//   const handleLogout = () => {
-//     localStorage.removeItem('token');
-//     localStorage.removeItem('token_type');
-//     navigate('/');
-//   };
-
-//   const menu = (
-//     <Menu>
-//       <Menu.Item key="1" onClick={handleLogout}>
-//         Logout
-//       </Menu.Item>
-//     </Menu>
-//   );
-
-//   return (
-//     <div className="add-fligth-container">
-//       <div className="header-addf">
-//         <div className="button-group-addflight">
-//           <img src={FFF} alt="Logo" className="addf-logo" />
-//           <Button className="home-button-addf" shape="round" onClick={() => navigate('/flight')}>Home</Button>
-//         </div>
-
-//         <div className="profile-section-addf">
-//           <img src={PPP} alt="Profile" className="profile-image-addf" />
-//           <span className="user-name-addf">John Doe</span>
-//           <Dropdown overlay={menu}>
-//             <Button>
-//               <DownOutlined />
-//             </Button>
-//           </Dropdown>
-//         </div>
-//       </div>
-
-//       <div className="form-container-addf">
-//         <Form
-//           form={form}
-//           name="addFlight"
-//           layout="vertical"
-//           onFinish={onFinish}
-//           onFinishFailed={onFinishFailed}
-//         >
-//           {/* โค้ดฟอร์มที่เหลือเหมือนเดิม */}
-//           <Row gutter={16}>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="FlightCode"
-//                 name="flightCode"
-//                 rules={[{ required: true, message: 'Please input FlightCode!' }]}
-//               >
-//                 <Input placeholder="FlightCode" />
-//               </Form.Item>
-//             </Col>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Type"
-//                 name="type"
-//                 rules={[{ required: true, message: 'Please input Type!' }]}
-//               >
-//                 <Input placeholder="Type" />
-//               </Form.Item>
-//             </Col>
-//           </Row>
-
-//           <Row gutter={16}>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Flying From"
-//                 name="flyingFrom"
-//                 rules={[{ required: true, message: 'Please input Flying From!' }]}
-//               >
-//                 <Input placeholder="Flying From" />
-//               </Form.Item>
-//             </Col>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Going To"
-//                 name="goingTo"
-//                 rules={[{ required: true, message: 'Please input Going To!' }]}
-//               >
-//                 <Input placeholder="Going To" />
-//               </Form.Item>
-//             </Col>
-//           </Row>
-
-//           <Row gutter={16}>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Schedule Start"
-//                 name="scheduleStart"
-//                 rules={[{ required: true, message: 'Please select Schedule Start!' }]}
-//               >
-//                 <DatePicker placeholder="Select date" style={{ width: '100%' }} />
-//               </Form.Item>
-//             </Col>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Schedule End"
-//                 name="scheduleEnd"
-//                 rules={[{ required: true, message: 'Please select Schedule End!' }]}
-//               >
-//                 <DatePicker placeholder="Select date" style={{ width: '100%' }} />
-//               </Form.Item>
-//             </Col>
-//           </Row>
-
-//           <Row gutter={16}>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Hour"
-//                 name="hour"
-//                 rules={[{ required: true, message: 'Please input Hour!' }]}
-//               >
-//                 <Input placeholder="Hour" />
-//               </Form.Item>
-//             </Col>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Airline_ID"
-//                 name="airlineId"
-//                 rules={[{ required: true, message: 'Please input Airline_ID!' }]}
-//               >
-//                 <Input placeholder="Airline_ID" />
-//               </Form.Item>
-//             </Col>
-//           </Row>
-
-//           <Row gutter={16}>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Cost"
-//                 name="cost"
-//                 rules={[{ required: true, message: 'Please input Cost!' }]}
-//               >
-//                 <Input placeholder="Cost" />
-//               </Form.Item>
-//             </Col>
-//             <Col span={12}>
-//               <Form.Item
-//                 label="Point"
-//                 name="point"
-//                 rules={[{ required: true, message: 'Please input Point!' }]}
-//               >
-//                 <Input placeholder="Point" />
-//               </Form.Item>
-//             </Col>
-//           </Row>
-
-//           <Form.Item>
-//           <Button className="save-button-addf" shape="round" htmlType="submit" block>SAVE</Button>
-//           </Form.Item>
-//         </Form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AddFlight;
-
-
-import React from 'react';
-import { Form, Input, Button, DatePicker, Row, Col, Dropdown, Menu, message } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom'; 
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, Button, DatePicker, Row, Col, Select, InputNumber, message, Menu, Dropdown } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import './AddFlight.css';
-import FFF from '../../assets/FFF.png'
-import PPP from '../../assets/PPP.jpg'
+import FFF from '../../assets/FFF.png'; 
+import PPP from '../../assets/PPP.jpg';
+import { PlusOutlined, DownOutlined  } from "@ant-design/icons";
+import { FlightDetailsInterface, AirlineInterface, AirportInterface, TypeOfFlightInterface } from '../../interfaces/fullmanageflight';
+import { GetAirline, GetTypeOfFlight, GetAirports, CreateFlightDetails } from '../../Service/index'; 
 
-const AddFlight: React.FC = () => {
-  const [form] = Form.useForm();
-  const navigate = useNavigate(); 
+const { Option } = Select;
 
-  const onFinish = async (values: any) => {
-    try {
-      const response = await axios.post('http://localhost:8080/createFlightDetails', {
-        flight_code: values.flightCode,
-        schedule_start: values.scheduleStart.format('YYYY-MM-DD'), 
-        schedule_end: values.scheduleEnd.format('YYYY-MM-DD'),
-        hour: values.hour,
-        cost: values.cost,
-        point: values.point,
-        airline_id: values.airlineId, 
-        flying_from_id: values.flyingFrom,
-        going_to_id: values.goingTo,
-        type_id: values.type,
+const CreateFlight: React.FC = () =>{
+  const navigate = useNavigate();
+  const [messageApi,contextHolder] = message.useMessage();
+  const [airlines, setAirlines] = useState<AirlineInterface[]>([]);
+  const [types, setTypes] = useState<TypeOfFlightInterface[]>([]);
+  const [airports, setAirports] = useState<AirportInterface[]>([]);
+
+  const onFinish = async (values: FlightDetailsInterface) => {
+    let res = await CreateFlightDetails(values);
+    if (res) {
+      messageApi.open({
+        type: "success",
+        content: "Flight added successfully!",
       });
-      message.success('Flight added successfully');
-      navigate('/flight');
-    } catch (error) {
-      console.error('Failed to add flight:', error);
-      message.error('Failed to add flight');
+      setTimeout(() => {
+        navigate("/date-flight");
+      }, 2000);
+    } else {
+      messageApi.open({
+        type: "error",
+        content: "Failed to add flight. Please try again!",
+      });
     }
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+  const getAirline = async () => {
+    let res = await GetAirline();
+    if (res) {
+      setAirlines(res.data);
+      console.log(res);
+    }
   };
 
+  const getAirports = async () => {
+    let res = await GetAirports();
+    if (res) {
+      setAirports(res.data);
+      console.log(res);
+    }
+  };
+
+  const getTypes = async () => {
+    let res = await GetTypeOfFlight();
+    if (res) {
+      setTypes(res.data);
+      console.log(res);
+    }
+  };
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('token_type');
-    navigate('/');
+        localStorage.removeItem('token');
+        localStorage.removeItem('token_type');
+        navigate('/');
   };
-
+    
   const menu = (
     <Menu>
       <Menu.Item key="1" onClick={handleLogout}>
-        Logout
+            Logout
       </Menu.Item>
     </Menu>
   );
 
+  useEffect(() => {
+    getAirline();
+    getAirports();
+    getTypes();
+  }, []);
+
   return (
-    <div className="add-fligth-container">
-      <div className="header-addf">
-        <div className="button-group-addflight">
-          <img src={FFF} alt="Logo" className="addf-logo" />
-          <Button className="home-button-addf" shape="round" onClick={() => navigate('/flight')}>Home</Button>
-        </div>
-
-        <div className="profile-section-addf">
-          <img src={PPP} alt="Profile" className="profile-image-addf" />
-          <span className="user-name-addf">John Doe</span>
-          <Dropdown overlay={menu}>
-            <Button>
-              <DownOutlined />
-            </Button>
-          </Dropdown>
-        </div>
-      </div>
-
-      <div className="form-container-addf">
-        <Form
-          form={form}
-          name="addFlight"
+    <div className="add-flight-container">
+      {contextHolder}
+      <Form name="basic"
           layout="vertical"
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        >
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Flight Code"
-                name="flightCode"
-                rules={[{ required: true, message: 'Please input Flight Code!' }]}
-              >
-                <Input placeholder="Flight Code" />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                label="Type"
-                name="type"
-                rules={[{ required: true, message: 'Please input Type!' }]}
-              >
-                <Input placeholder="Type" />
-              </Form.Item>
-            </Col>
-          </Row>
+          autoComplete="off">
+        <div className="header-addf">
+          <div className="button-group-addflight">
+            <img src={FFF} alt="Logo" className="addf-logo" />
+            <Button className="home-button-addf" shape="round" onClick={() => navigate('/flight')}>
+              Home
+            </Button>
+          </div>
+          <div className="profile-section-addf">
+            <Dropdown overlay={menu}>
+              <Button>
+               <DownOutlined />
+              </Button>
+            </Dropdown>
+          </div>
+        </div>
 
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Flying From"
-                name="flyingFrom"
-                rules={[{ required: true, message: 'Please input Flying From!' }]}
-              >
-                <Input placeholder="Flying From" />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                label="Going To"
-                name="goingTo"
-                rules={[{ required: true, message: 'Please input Going To!' }]}
-              >
-                <Input placeholder="Going To" />
-              </Form.Item>
-            </Col>
-          </Row>
+        <div className="form-container-addf">
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item
+                  label="Flight Code"
+                  name="FlightCode"
+                  rules={[{ required: true, message: 'Please input Flight Code!' }]}
+                >
+                  <Input placeholder="Flight Code" />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item
+                  label="Type"
+                  name="TypeID"
+                  rules={[{ required: true, message: 'Please select Type!' }]}
+                >
+                  <Select placeholder="Select Type" allowClear>
+                    {types.map(item => (
+                      <Option value={item.ID} key={item.TypeFlight}>
+                        {item.TypeFlight}
+                      </Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+              </Col>
+            </Row>
 
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Schedule Start"
-                name="scheduleStart"
-                rules={[{ required: true, message: 'Please select Schedule Start!' }]}
-              >
-                <DatePicker placeholder="Select date" style={{ width: '100%' }} />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                label="Schedule End"
-                name="scheduleEnd"
-                rules={[{ required: true, message: 'Please select Schedule End!' }]}
-              >
-                <DatePicker placeholder="Select date" style={{ width: '100%' }} />
-              </Form.Item>
-            </Col>
-          </Row>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item
+                  label="Flying From"
+                  name="FlyingFromID"
+                  rules={[{ required: true, message: 'Please select the departure Flying From!' }]}
+                >
+                  <Select placeholder="Select Flying From" allowClear>
+                    {airports.map(item => (
+                      <Option value={item.ID} key={item.AirportCode}>
+                        {item.AirportCode}
+                      </Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item
+                  label="Going To"
+                  name="GoingToID"
+                  rules={[{ required: true, message: 'Please select the destination Going To!' }]}
+                >
+                  <Select placeholder="Select Going To" allowClear>
+                    {airports.map(item => (
+                      <Option value={item.ID} key={item.AirportCode}>
+                        {item.AirportCode}
+                      </Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+              </Col>
+            </Row>
 
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Hour"
-                name="hour"
-                rules={[{ required: true, message: 'Please input Hour!' }]}
-              >
-                <Input placeholder="Hour" />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                label="Airline ID"
-                name="airlineId"
-                rules={[{ required: true, message: 'Please input Airline ID!' }]}
-              >
-                <Input placeholder="Airline ID" />
-              </Form.Item>
-            </Col>
-          </Row>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item
+                  label="Schedule Start"
+                  name="ScheduleStart"
+                  rules={[{ required: true, message: 'Please select Schedule Start!' }]}
+                >
+                  <DatePicker showTime placeholder="Select date and time" style={{ width: '100%' }} />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item
+                  label="Schedule End"
+                  name="ScheduleEnd"
+                  rules={[{ required: true, message: 'Please select Schedule End!' }]}
+                >
+                  <DatePicker showTime placeholder="Select date and time" style={{ width: '100%' }} />
+                </Form.Item>
+              </Col>
+            </Row>
 
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Cost"
-                name="cost"
-                rules={[{ required: true, message: 'Please input Cost!' }]}
-              >
-                <Input placeholder="Cost" />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item
-                label="Point"
-                name="point"
-                rules={[{ required: true, message: 'Please input Point!' }]}
-              >
-                <Input placeholder="Point" />
-              </Form.Item>
-            </Col>
-          </Row>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item label="Hour" name="Hour" rules={[{ required: true, message: 'Please input Hour!' }]}>
+                  <InputNumber placeholder="Hour" min={1} style={{ width: '100%' }} />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item label="Airline" name="AirlineID" rules={[{ required: true, message: 'Please select Airline!' }]}>
+                  <Select placeholder="Select Airline" allowClear>
+                    {airlines.map(item => (
+                      <Option value={item.ID} key={item.AirlineName}>
+                        {item.AirlineName}
+                      </Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+              </Col>
+            </Row>
 
-          <Form.Item>
-            <Button className="save-button-addf" shape="round" htmlType="submit" block>SAVE</Button>
-          </Form.Item>
-        </Form>
-      </div>
+            <Row gutter={16}>
+              <Col span={12}>
+                <Form.Item label="Cost" name="Cost" rules={[{ required: true, message: 'Please input Cost!' }]}>
+                  <InputNumber placeholder="Cost" min={0} style={{ width: '100%' }} />
+                </Form.Item>
+              </Col>
+              <Col span={12}>
+                <Form.Item label="Point" name="Point" rules={[{ required: true, message: 'Please input Point!' }]}>
+                  <InputNumber placeholder="Point" min={0} style={{ width: '100%' }} />
+                </Form.Item>
+              </Col>
+            </Row>
+
+            <Form.Item>
+              <Button className="save-button-addf" shape="round" htmlType="submit" block icon={<PlusOutlined />}>
+                SAVE
+              </Button>
+            </Form.Item>
+        </div>
+      </Form>
     </div>
   );
 };
-
-export default AddFlight;
+export default CreateFlight;

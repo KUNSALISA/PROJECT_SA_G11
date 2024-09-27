@@ -1,77 +1,107 @@
-
-import React, { useState, useEffect } from 'react';
-import { Table, Button, Input, Space, DatePicker, Dropdown, Menu } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
-import moment from 'moment';
-import './flight.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Table, Button, Input, Space, Dropdown, Menu } from "antd";
+import { ColumnsType } from "antd/es/table";
+import { DownOutlined, SearchOutlined } from "@ant-design/icons";
+import moment from "moment";
+import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
 import FFF from '../../assets/FFF.png';
 import PPP from '../../assets/PPP.jpg';
-
-interface FlightData {
-  key: string;
-  flightCode: string;
-  from: string;
-  to: string;
-  start: string;
-  end: string;
-  airline: string;
-  date: string;
-}
+import {FlightDetailsInterface,FlightAndFlightDetailsInterface} from '../../interfaces/fullmanageflight';
+import {GetFlightAndFlightDetails} from '../../Service/index';
+import "./flight.css";
 
 const FlightTable: React.FC = () => {
-  const [data, setData] = useState<FlightData[]>([]);
-  const [originalData, setOriginalData] = useState<FlightData[]>([]); 
-  const [searchText, setSearchText] = useState('');
-  const [selectedDate, setSelectedDate] = useState<moment.Moment | null>(null);
+  const [flight_s, setDate] = useState<FlightAndFlightDetailsInterface[]>([]);
+  const [flightdetails, setFlight] = useState<FlightDetailsInterface[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [searchText, setSearchText] = useState<string>("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const flights = [
-        { key: '1', flightCode: 'FL123', from: 'Bangkok', to: 'Tokyo', start: '2024-09-10 08:00', end: '2024-09-10 12:00', airline: 'Thai Airways', date: '2024-09-10' },
-        { key: '2', flightCode: 'FL456', from: 'Bangkok', to: 'New York', start: '2024-09-12 20:00', end: '2024-09-13 04:00', airline: 'Emirates', date: '2024-09-12' },
-      ];
-      setData(flights);
-      setOriginalData(flights);
-    };
-    fetchData();
-  }, []);
+  // Table columns
+  const columns: ColumnsType<FlightAndFlightDetailsInterface> = [
+    {
+      title: "Flight Code",
+      key: "FlightDetailID",
+      render: (record) => <>{record.FlightDetail?.FlightCode || "N/A"}</>,
+    },
+    {
+      title: "Flying From",
+      key: "FlightDetailID",
+      render: (record) => <>{record.FlightDetail?.FlyingFrom?.AirportCode || "N/A"}</>,
+    },
+    {
+      title: "Going To",
+      key: "FlightDetailID",
+      render: (record) => <>{record.FlightDetail?.GoingTo?.AirportCode || "N/A"}</>,
+    },
+    {
+      title: "Schedule Start",
+      dataIndex: "FlightDetailID",
+      key: "FlightDetailID",
+      render: (text, record) => {
+        const scheduleStart = record.FlightDetail?.ScheduleStart;
+        return (
+          <p>{scheduleStart ? dayjs(scheduleStart).format("HH:mm:ss") : "N/A"}</p>
+        );
+      }
+    },
+    {
+      title: "Schedule End",
+      dataIndex: "FlightDetailID",
+      key: "FlightDetailID",
+      render: (text, record) => {
+        const scheduleEnd = record.FlightDetail?.ScheduleEnd;
+        return (
+          <p>{scheduleEnd ? dayjs(scheduleEnd).format("HH:mm:ss") : "N/A"}</p>
+        );
+      }
+    },
+    {
+      title: "Airline",
+      key: "FlightDetailID",
+      render: (record) => <>{record.FlightDetail?.Airline?.AirlineName || "N/A"}</>,
+    },
+    {
+      title: "Flight Date",
+      dataIndex: "FlightDate",  
+      key: "FlightDate",
+      render: (FlightDate) => (
+        <p>{dayjs(FlightDate).format("YYYY:MM:DD")}</p>
+      ),
+    },
+  ];
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchText(value);
-
-    if (value === '') {
-      setData(originalData);
-    } else {
-      const filteredData = originalData.filter((flight) =>
-        flight.flightCode.toLowerCase().includes(value.toLowerCase())
-      );
-      setData(filteredData);
-    }
-  };
-
-  const handleDateChange = (date: moment.Moment | null) => {
-    setSelectedDate(date);
-
-    if (date) {
-      const filteredData = originalData.filter((flight) =>
-        flight.date === date.format('YYYY-MM-DD')
-      );
-      setData(filteredData);
-    } else {
-      setData(originalData);
-    }
-  };
+    // Fetch flight details from the backend API
+    useEffect(() => {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const response = await axios.get("http://localhost:8080/flight-and-flight-details");
+          setDate(response.data.data);
+        } catch (error) {
+          console.error("Error fetching flight details:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchData();
+      // GetFlightAndFlightDetails();
+      // const interval = setInterval(GetFlightAndFlightDetails, 2000); 
+      // return () => clearInterval(interval);
+    }, []);
+  
+    
+  // Filter data based on search text
+  const filteredFlights = flight_s.filter((flight) => {
+    return flight.FlightDetail?.FlightCode.toLowerCase().includes(searchText.toLowerCase());
+  });
 
   // Function to handle logout
   const handleLogout = () => {
-    // Clear the token from localStorage
     localStorage.removeItem('token');
     localStorage.removeItem('token_type');
-
-    // Navigate to login page
     navigate('/');
   };
 
@@ -83,53 +113,6 @@ const FlightTable: React.FC = () => {
     </Menu>
   );
 
-  const columns = [
-    {
-      title: 'Flight Code',
-      dataIndex: 'flightCode',
-      key: 'flightCode',
-    },
-    {
-      title: 'Flying From',
-      dataIndex: 'from',
-      key: 'from',
-    },
-    {
-      title: 'Going To',
-      dataIndex: 'to',
-      key: 'to',
-    },
-    {
-      title: 'Schedule Start',
-      dataIndex: 'start',
-      key: 'start',
-    },
-    {
-      title: 'Schedule End',
-      dataIndex: 'end',
-      key: 'end',
-    },
-    {
-      title: 'Airline',
-      dataIndex: 'airline',
-      key: 'airline',
-    },
-    {
-      title: 'Date',
-      dataIndex: 'date',
-      key: 'date',
-    },
-    {
-      title: 'Actions',
-      key: 'action',
-      render: (text: any, record: FlightData) => (
-        <Button className="edit-button" onClick={() => navigate(`/edit-flight/${record.key}`)}>
-          EDIT
-        </Button>
-      ),
-    },
-  ];
-
   return (
     <div className="flight-container">
       <div className="header">
@@ -140,8 +123,6 @@ const FlightTable: React.FC = () => {
         </div>
 
         <div className="profile-section">
-          <img src={PPP} alt="Profile" className="profile-image" />
-          <span className="user-name">John Doe</span>
           <Dropdown overlay={menu}>
             <Button>
               <DownOutlined />
@@ -155,16 +136,12 @@ const FlightTable: React.FC = () => {
           <Input
             placeholder="Search Flight by Code"
             value={searchText}
-            onChange={handleSearch}
-          />
-          <DatePicker
-            onChange={handleDateChange}
-            value={selectedDate}
-            format="YYYY-MM-DD"
+            onChange={(e) => setSearchText(e.target.value)}
+            prefix={<SearchOutlined />}
           />
         </Space>
       </div>
-      <Table columns={columns} dataSource={data} pagination={false} />
+      <Table columns={columns} dataSource={filteredFlights} pagination={false} rowKey={(record) => record.ID} loading={loading} />
     </div>
   );
 };
