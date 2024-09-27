@@ -61,6 +61,45 @@ func main() {
 	r.POST("/requests", controllers.CreateRequest)
 	r.PUT("/requests/:id", controllers.UpdateRequest)
 	r.DELETE("/requests/:id", controllers.DeleteRequest)
+
+	// Group Routes
+    benefitsRoutes := r.Group("/Benefits")
+    {
+        benefitsRoutes.POST("/", controllers.CreateBenefits)
+        benefitsRoutes.GET("/:id", controllers.GetBenefitsID)
+        benefitsRoutes.GET("/", controllers.GetBenefits)
+        benefitsRoutes.DELETE("/:id", controllers.DeleteBenefits)
+        benefitsRoutes.PATCH("/:id", controllers.UpdateBenefits)
+    }
+    
+    bookingsRoutes := r.Group("/bookings")
+    {
+        bookingsRoutes.POST("/", controllers.CreateBooking)
+        bookingsRoutes.GET("/:id", controllers.GetBookingID)
+        bookingsRoutes.GET("/", controllers.GetBooking)
+        bookingsRoutes.DELETE("/:id", controllers.DeleteBooking)
+        bookingsRoutes.PATCH("/:id", controllers.UpdateBooking)
+    }
+
+    membersRoutes := r.Group("/Member")
+    {
+        membersRoutes.POST("/", controllers.CreateMember)
+        membersRoutes.GET("/:id", controllers.GetMemberID)
+        membersRoutes.GET("/", controllers.GetMember)
+        membersRoutes.DELETE("/:id", controllers.DeleteMember)
+        membersRoutes.PATCH("/:id", controllers.UpdateMember)
+    }
+
+    paymentsRoutes := r.Group("/Payment")
+    {
+        paymentsRoutes.POST("/", controllers.CreatePayment)
+        paymentsRoutes.GET("/:id", controllers.GetPaymentID)
+        paymentsRoutes.GET("/", controllers.GetPayment)
+        paymentsRoutes.DELETE("/:id", controllers.DeletePayment)
+        paymentsRoutes.PATCH("/:id", controllers.UpdatePayment)
+        paymentsRoutes.POST("/Mock", controllers.CreatePayment) // ใช้ CreatePayment แทน MockPayment
+    }
+
 	// รันเซิร์ฟเวอร์ที่พอร์ตที่กำหนด
 	r.Run("localhost:" + PORT)
 }
