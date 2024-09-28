@@ -199,8 +199,8 @@ func UpdateBenefits(c *gin.Context) {
 	if input.Trip != "" {
 		benefit.Trip = input.Trip
 	}
-	if input.Type != "" {
-		benefit.Type = input.Type
+	if input.Class != "" {
+		benefit.Class = input.Class
 	}
 
 	if err := config.DB().Save(&benefit).Error; err != nil {

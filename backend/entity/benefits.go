@@ -10,8 +10,11 @@ type Benefits struct {
 	PointRequired uint
 	Quantity      uint
 	Code          string
+	Class          string
 	Trip          string
-	Type          string
+	Img1          string
+	Img2          string
+	Img3          string
 
 	// AirlineID ทำหน้าที่เป็น FK
 	AirlineID *uint

@@ -19,5 +19,8 @@ export interface Benefits {
     PointRequired: number;
     Quantity: number;
     Code: string;
-    Trip: string;
+    Class: string;
+    Img1: string;
+    Img2: string;
+    Img3: string;
 }
