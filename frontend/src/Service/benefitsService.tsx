@@ -1,5 +1,5 @@
 // src/services/benefits.service.tsx
-import { Benefits } from './benefits.interface';
+import { Benefits } from '../interfaces/benefits.interface';
 import { useState } from 'react';
 
 export const useBenefitsService = () => {

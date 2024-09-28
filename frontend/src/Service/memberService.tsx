@@ -1,5 +1,5 @@
 // src/services/member.service.tsx
-import { Member } from './member.interface';
+import { Member } from '../interfaces/member.interface';
 import { useState } from 'react';
 
 export const useMemberService = () => {

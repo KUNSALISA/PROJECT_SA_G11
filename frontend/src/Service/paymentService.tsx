@@ -51,7 +51,7 @@
 //     };
 // };
 
-import { Payment } from './payment.interface';
+import { Payment } from '../interfaces/payment.interface';
 import { useState } from 'react';
 
 export const usePaymentService = () => {

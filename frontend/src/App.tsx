@@ -58,20 +58,50 @@ function App() {
 export default App; */
 
 
-import { useState } from 'react';
-import HelpCenterPage from './pages/HelpCenter/HelpCenterPage';
+// import { useState } from 'react';
+// import HelpCenterPage from './pages/HelpCenter/HelpCenterPage';
 
-function App() {
-  const [count, setCount] = useState(0)
+// function App() {
+//   const [count, setCount] = useState(0)
 
+//   return (
+//     <>
+//     <div>
+//       <HelpCenterPage />
+//     </div>
+//     </>
+//   )
+// }
+
+// export default App;
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import Payment from './pages/Payment/payment.tsx'
+import InternetBanking from './pages/InternetBanking/internetbanking.tsx'
+import Wallet from './pages/cards/cards.tsx'
+import Paypal from './pages/EWallet/EWallet.tsx'
+import Cards from './pages/paypal/paypal.tsx'
+import './index.css'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
+const App: React.FC = () => {
   return (
-    <>
-    <div>
-      <HelpCenterPage />
-    </div>
-    </>
-  )
+  <Router>
+      <div>
+        
+
+        <Routes>
+          <Route path="/Payment" element={<Payment />} />
+          <Route path="/InternetBanking" element={<InternetBanking />} />
+          <Route path="/Wallet" element={<Wallet />} />
+          <Route path="/Paypal" element={<Paypal />} />
+          <Route path="/Cards" element={<Cards />} />
+          <Route path="/" element={<Payment />} /> {/* Make Payment the default route */}
+        </Routes>
+      </div>
+    </Router>
+)
 }
 
 export default App;
-

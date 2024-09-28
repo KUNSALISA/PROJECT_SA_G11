@@ -1,5 +1,5 @@
 // src/services/booking.service.tsx
-import { Booking } from './booking.interface';
+import { Booking } from '../interfaces/booking.interface';
 import { useState } from 'react';
 
 export const useBookingService = () => {

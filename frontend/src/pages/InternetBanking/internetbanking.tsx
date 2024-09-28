@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Layout, Divider, List, Typography, Button, Card, Form, Input, Flex } from 'antd';
-import { usePaymentService } from './paymentService';
-import { useBookingService } from './bookingService';
-import { Payment } from './payment.interface';
-import imageSrc from './Screenshot 2024-09-19 023621.png';
+import { usePaymentService } from '../../Service/paymentService';
+import { useBookingService } from '../../Service/bookingService';
+// import { Payment } from './payment.interface';
+import imageSrc from 'c:/Users/Totragool/Documents/GitHub/PROJECT_SA_G11/frontend/src/assets/Screenshot 2024-09-19 023621.png';
+
 
 const { Header, Footer, Content } = Layout;
 

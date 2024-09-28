@@ -4,9 +4,10 @@ import { Divider, List, Typography } from 'antd';
 import { Button, Flex } from 'antd';
 import { Card } from 'antd';
 import { Form, Input } from 'antd';
-import { usePaymentService } from './paymentService';
-import { useBookingService } from './bookingService';
-import imageSrc from './Screenshot 2024-09-19 023621.png';
+import { usePaymentService } from '../../Service/paymentService';
+import { useBookingService } from '../../Service/bookingService';
+import imageSrc from 'c:/Users/Totragool/Documents/GitHub/PROJECT_SA_G11/frontend/src/assets/Screenshot 2024-09-19 023621.png';
+
 
 const { Header, Footer, Content } = Layout;
 
