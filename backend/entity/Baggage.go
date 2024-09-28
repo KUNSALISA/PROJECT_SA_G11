@@ -9,9 +9,8 @@ import (
 type Baggage struct {
 	gorm.Model
 	
-	weight int
-	price  float64
-	status string
+	Weight int
+	Price  float64
 	
-	Booking_baggage []Booking_baggage `gorm:"foreignKey:BaggageID"`
+	BookingBaggage []BookingBaggage `gorm:"foreignKey:BaggageID"`
 }

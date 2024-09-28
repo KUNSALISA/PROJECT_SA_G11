@@ -6,7 +6,7 @@ import (
 
 )
 
-type Booking_baggage struct {
+type BookingBaggage struct {
 	gorm.Model
 	
 	BookingID *uint

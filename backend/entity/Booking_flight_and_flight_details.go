@@ -6,7 +6,7 @@ import (
 
 )
 
-type Booking_flight_and_flight_details struct {
+type BookingFlightAndFlightDetails struct {
 	gorm.Model
 
 	Type string

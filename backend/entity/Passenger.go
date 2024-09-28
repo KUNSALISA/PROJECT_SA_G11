@@ -1,25 +1,26 @@
 package entity
 
 import (
+	
 	"time"
-
 	"gorm.io/gorm"
+
 )
 
 type Passenger struct {
 	gorm.Model
-
-	first_name      string
-	last_name       string
-	gender          string
-	birthday        time.Time
-	email           string
-	phone           string
-	passport_number string
-	passport_date   string
+	
+	FirstName string
+	LastName string
+	Gender string
+	BirthDay time.Time
+	Email string
+	Phone string
+	PassportNumber string
+	PassportDate string
 
 	MemberID *uint
-	Member   Member `gorm:"foreignKey:MemberID"`
+	Mmber Member`gorm:"foreignKey:MemberID"`
 
-	Booking_passenger []Booking_passenger `gorm:"foreignKey:PassengerID"`
+	BookingPassenger []BookingPassenger `gorm:"foreignKey:PassengerID"`
 }

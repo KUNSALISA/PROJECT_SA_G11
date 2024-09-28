@@ -62,6 +62,12 @@ func main() {
 	r.PUT("/requests/:id", controllers.UpdateRequest)
 	r.DELETE("/requests/:id", controllers.DeleteRequest)
 
+	r.GET("/booking", controllers.GetBookingAll)
+	r.GET("/booking/:id", controllers.GetBookingAllID)
+	r.POST("/booking", controllers.CreateBookingAll)
+
+	r.GET("/availableflights", controllers.GetAvailableFlights)
+
 	// Group Routes
     benefitsRoutes := r.Group("/Benefits")
     {

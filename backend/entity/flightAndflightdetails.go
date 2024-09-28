@@ -17,5 +17,5 @@ type FlightAndFlightDetails struct {
 	AdminID *uint
 	Admin   Admin `gorm:"foreignKey:admin_id"`
 
-	Booking_flight_and_flight_details []Booking_flight_and_flight_details `gorm:"foreignKey:FlightAndFlightDetailsID"`
+	BookingFlightAndFlightDetails []BookingFlightAndFlightDetails `gorm:"foreignKey:FlightAndFlightDetailsID"`
 }

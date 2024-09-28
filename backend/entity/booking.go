@@ -34,4 +34,8 @@ type Booking struct {
 
     // 1 Booking สามารถมี 1 Payment
     Payment *Payment `gorm:"foreignKey:BookingID"`
+
+    BookingPassenger []BookingPassenger `gorm:"foreignKey:BookingID"`
+	BookingBaggage []BookingBaggage `gorm:"foreignKey:BookingID"`
+	BookingFlightAndFlightDetails []BookingFlightAndFlightDetails `gorm:"foreignKey:BookingID"`
 }
