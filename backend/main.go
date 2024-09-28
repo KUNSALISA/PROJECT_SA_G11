@@ -68,6 +68,10 @@ func main() {
 
 	r.GET("/availableflights", controllers.GetAvailableFlights)
 
+	r.GET("/point", controllers.GetAllPoint)
+	r.GET("/point/:id", controllers.GetPointByID)
+	r.DELETE("/point/:id", controllers.DeletePoint)
+
 	// Group Routes
     benefitsRoutes := r.Group("/Benefits")
     {

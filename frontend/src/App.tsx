@@ -82,6 +82,9 @@ import InternetBanking from './pages/InternetBanking/internetbanking.tsx'
 import Wallet from './pages/cards/cards.tsx'
 import Paypal from './pages/EWallet/EWallet.tsx'
 import Cards from './pages/paypal/paypal.tsx'
+import Benefits from './pages/BenefitsAirline/Benefits'; // Import the YourComponent component
+import Benefits2 from './pages/BenefitsAll/Benefits2_1'; // Import the EditFlight component
+import Benefits3_1_1 from './pages/BenefitsDetails/Benefits3_1_1'; // Import the BookingFlight component
 import './index.css'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
@@ -98,6 +101,9 @@ const App: React.FC = () => {
           <Route path="/Paypal" element={<Paypal />} />
           <Route path="/Cards" element={<Cards />} />
           <Route path="/" element={<Payment />} /> {/* Make Payment the default route */}
+          <Route path="/Benefits" element={<Benefits/>} />
+          <Route path="/Benefits2" element={<Benefits2/>} /> 
+          <Route path="/benefits3-details/:id" element={<Benefits3_1_1 />} />
         </Routes>
       </div>
     </Router>
