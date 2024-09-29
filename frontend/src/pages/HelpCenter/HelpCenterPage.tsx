@@ -466,7 +466,7 @@ const HelpCenterPage = () => {
     
         } catch (error) {
             console.error('Error submitting form:', error);
-            alert("Failed to send request. Please try again later.");
+            alert("Failed to save request. Please try again later.");
         }
     };
     
