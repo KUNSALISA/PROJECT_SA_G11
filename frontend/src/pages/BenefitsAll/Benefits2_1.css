@@ -1,0 +1,216 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  width: auto;
+  height: 90px;
+  background-color: #6FAEC9;
+  padding: 20px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 5%;
+}
+
+.logo2_1 {
+  width: 5%;
+  height: 8%;
+  left: 5%;
+  top: 1.5%;
+  position: absolute;
+}
+
+.bum1 button,
+.bum2 button,
+.bum3 button,
+.bum4 button {
+  /* width: 87%;
+  height: 17%; */
+  width: 155.019px;
+  height: 53.469px;
+  background-color: #ffffff;
+  color: #5f212e;
+  border-radius: 9.38px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: Bree-Serif;
+  font-size: 24px;
+  margin-left: 205%;
+}
+
+/* Airline buttons */
+.airline-container {
+  height: 110px;
+  background-color: #d9d0be;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.airline-container div {
+  width: 50px;
+  height: 50px;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.logoAA2 {
+  margin-top: 7px;
+  width: 65px;
+  height: 60px;
+}
+.logoAA2:hover {
+  transform: scale(1.05); 
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.logoNA2 {
+  margin-top: 7px;
+  width: 65px;
+  height: 60px;
+}
+.logoNA2:hover {
+  transform: scale(1.05); 
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.logoTA2 {
+  margin-top: 7px;
+  width: 65px;
+  height: 60px;
+}
+.logoTA2:hover {
+  transform: scale(1.05); 
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.logoVJ2 {
+  margin-top: 7px;
+  width: 65px;
+  height: 60px;
+}
+.logoVJ2:hover {
+  transform: scale(1.05); 
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.airline-text {
+  margin-left: 17.5%;
+  margin-top: -35px;
+  display: flex;
+  gap: 364px;
+  /* color: #6E2B32;
+  font-weight: bold;
+  font-family: Bree-Serif;
+  margin-top: 6%;
+  font-size: 23px; */
+}
+
+.airline1,
+.airline2 {
+  color: #6E2B32;
+  font-weight: bold;
+  font-family: Bree-Serif;
+  /* margin-top: 6%; */
+  font-size: 23px;
+}
+
+.airline3 {
+  color: #6E2B32;
+  font-weight: bold;
+  font-family: Bree-Serif;
+  /* margin-top: 6%; */
+  margin-left: 0.2%;
+  font-size: 23px;
+}
+
+.airline4 {
+  color: #6E2B32;
+  font-weight: bold;
+  font-family: Bree-Serif;
+  /* margin-top: 6%; */
+  margin-left: 1.8%;
+  font-size: 23px;
+}
+
+.airline-container div:hover {
+  border-color: black;
+}
+
+.active {
+  border-color: black;
+}
+
+/* Flight list */
+.flight-grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: -1%;
+  row-gap: 3%;
+  padding: 20px;
+  margin-left: 1.5%;
+}
+
+.flight-card {
+  width: 77%;
+  height: 90%;
+  margin-top: 5%;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  
+}
+
+.flight-card img {
+  width: 100%;
+  height: 200px;
+  background-color: #5b1c1c;
+  border-radius: 10px;
+}
+/* .flight-card .icon{
+  margin-top: 5%;
+  width: 9%;
+  height: 5%;
+} */
+
+.flight-card .a-price {
+  margin-left: 30%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flight-card .a-price .p2-icon {
+  background-color: white;
+  width: 40px;
+  height: 50px;
+}
+
+.flight-card .a-price .price {
+  margin-left: 7%;
+  font-size: 26px;
+  color: #6E2B32;
+  font-weight: bold;
+  font-family: Bree-Serif;
+}
+
+.flight-card .route {
+  color: #6E2B32;
+  font-weight: bold;
+  font-family: Bree-Serif;
+  margin-top: 6%;
+  font-size: 25.5px;
+}

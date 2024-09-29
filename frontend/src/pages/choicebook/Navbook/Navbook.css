@@ -10,26 +10,33 @@ nav{
     color: #fff;
 }
 
-.nevbar ul a{
-    display: inline-block;
-    margin: 0 15px;
+.nevbook{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+    padding: 0 5%;
+    z-index: 999;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    position: fixed;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.nevbar ul a{
+.nevbook ul a{
+    display: inline-block;
+    margin: 0 15px;
+    
+}
+
+.nevbook ul a{
     font-weight: 300;
     color: black;
     padding: 5px 10px; /* เพิ่ม padding เพื่อให้มีช่องว่างรอบข้อความ */
     transition: all 0.1s ease; /* เพิ่มการเปลี่ยนแปลงแบบ smooth */
-    border: 2px solid transparent; /* เริ่มต้นไม่มีกรอบ */
+    border: 1px solid transparent; /* เริ่มต้นไม่มีกรอบ */
     border-radius: 5px; /* ปรับขอบให้มน */
-}
-
-.navlist {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: flex-start;
 }
 
 .nevlink{
@@ -44,22 +51,8 @@ nav{
     text-decoration: none; /* ลบเส้นใต้ */
 }
 
-.logo {
-    font-size: 10px;
-    color: black;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-}
-
 .loginButton {
     margin-left: auto;
-}
-
-.dark-nav{
-    background-color: #fff;
-    transition: 0.3s;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .Userbutton{

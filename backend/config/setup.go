@@ -35,6 +35,7 @@ func SetupDatabase() {
 		&entity.FlightDetails{},
 		&entity.TypeOfFlight{},
 		&entity.Member{},
+		&entity.Point_Calculator{},
 		&entity.Benefits{},
 		&entity.Notification{},
 		&entity.Request{},
@@ -305,6 +306,28 @@ func SetupDatabase() {
 	}
 	for _, pkg := range BenefitsDetails {
 		db.FirstOrCreate(&pkg,entity.Benefits{Code: pkg.Code})
+	}
+
+	PointCal := []entity.Point_Calculator{
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Samui", Point: 750, Class: "Business"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Samui", Point: 500, Class: "Economy"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Maldives", Point: 750, Class: "Business"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Maldives", Point: 500, Class: "Economy"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Lampang", Point: 750, Class: "Business"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Lampang", Point: 500, Class: "Economy"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Phuket", Point: 750, Class: "Business"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Phuket", Point: 500, Class: "Economy"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Trat", Point: 750, Class: "Business"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Trat", Point: 500, Class: "Economy"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Chiang Mai", Point: 750, Class: "Business"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Chiang Mai", Point: 500, Class: "Economy"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Sukhothai", Point: 750, Class: "Business"},
+		{FlyingFrom: "Bangkok (Suvarnabhum)", GoingTo: "Sukhothai", Point: 500, Class: "Economy"},
+		{FlyingFrom: "Chiang Mai", GoingTo: "Krabi", Point: 750, Class: "Business"},
+		{FlyingFrom: "Chiang Mai", GoingTo: "Krabi", Point: 500, Class: "Economy"},
+	}
+	for _, pcloop := range PointCal {
+		db.FirstOrCreate(&pcloop,entity.Point_Calculator{GoingTo: pcloop.GoingTo, Point: pcloop.Point})
 	}
 }
 

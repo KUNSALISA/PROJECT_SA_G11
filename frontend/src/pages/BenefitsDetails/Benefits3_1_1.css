@@ -1,0 +1,326 @@
+/* Apply to the entire app */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.airline-selection {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #5E3A35;
+  display: flex;
+  /* Enable Flexbox */
+  align-items: center;
+  /* Center vertically */
+  flex-direction: column;
+}
+
+.header-bar {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #6FAEC9;
+  padding-left: 0%;
+}
+
+.head-logo {
+  width: 110px;
+  height: 95px;
+  margin-right: 5%;
+  margin-left: 120px;
+  /* Adjust spacing between logo and buttons */
+}
+
+.navbar-container {
+  display: flex;
+  gap: 10%;
+  /* Adjust this to reduce/increase space between buttons */
+}
+
+.navbar1 button,
+.navbar2 button,
+.navbar3 button,
+.navbar4 button {
+  width: 155.019px;
+  height: 53.469px;
+  background-color: #ffffff;
+  color: #5f212e;
+  border-radius: 9.38px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: Bree-Serif;
+  font-size: 24px;
+  
+  /* Reset margins if they exist */
+}
+
+.app-name {
+  margin-left: 10px;
+  font-size: 18px;
+  color: #5E3A35;
+}
+
+.header2 {
+  width: 100%;
+  height: 10%;
+  /* display: flex;
+      justify-content: space-between;
+      align-items: center; */
+  background-color: #5f212e;
+  /* margin-top: 50px; */
+  /* position: relative; */
+}
+
+.frame-flight-details {
+  /* display: flex; */
+  margin-top: 60px;
+  /* left: 200px; */
+  width: 1300px;
+  height: 720px;
+  /* top: 200px; */
+  background-color: #5f212e;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* justify-content: center;
+      align-items: center; */
+}
+
+.flight-details {
+  display: flex;
+  /* left: 200px; */
+  /* width: 740px; */
+  height: 687px;
+  top: 200px;
+  background-color: #FAF8F5;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* justify-content: center;
+      align-items: center; */
+}
+
+.img-benefits-details3_1_1 {
+  margin-left: 3%;
+  width: 680px;
+  margin-top: 2%;
+}
+
+.img1 {
+  width: 90%;
+  height: 60%;
+}
+
+.img-benefits-details3_1_1_y {
+  margin-top: 3%;
+  display: flex;
+  gap: 3%;
+}
+
+.img2 {
+  width: 45%;
+  height: 200px;
+}
+
+.img3 {
+  width: 42%;
+  height: 200px;
+}
+
+.flight-info {
+  width: 560px;
+  margin-top: 60px;
+  margin-left: 0px;
+  display: flex;
+  
+  flex-direction: column;
+}
+
+.ff {
+  /* margin-left: 50px; */
+  font-size: 35px;
+  color: #6E2B32;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: Bree-Serif;
+  text-align: center;
+}
+
+.gt {
+  /* margin-left: 50px; */
+  font-size: 35px;
+  color: #6E2B32;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: Bree-Serif;
+  text-align: center;
+}
+
+.a-airline {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  /* align-items: center;
+  place-items: center; */
+}
+
+.airline-name {
+  margin-left: 30px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #6E2B32;
+  /* font-weight: bold; */
+  font-family: Bree-Serif;
+  /* align-items: center;
+  place-items: center; */
+}
+
+.logoAA3 {
+  margin-top: 7px;
+  margin-left: 20px;
+  width: 65px;
+  height: 62px;
+}
+
+.a-points {
+  font-size: 18px;
+  color: #333;
+  margin-left: 35px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.p-icon {
+  width: 45px;
+  height: 50px;
+}
+
+.points {
+  font-size: 32px;
+  color: #333;
+  /* margin-left: 50px; */
+  font-weight: bold;
+  font-family: Bree-Serif;
+}
+
+.class {
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #6E2B32;
+  /* font-weight: bold; */
+  font-family: Bree-Serif;
+}
+
+/* .class-class {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center; 
+  gap: 10%; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.eco-button button, .bu-button button {
+  background-color: #ffffff;
+  border: 1px solid #5E3A35;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: Bree-Serif;
+} */
+
+.trip {
+  margin-left: 30px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #6E2B32;
+  /* font-weight: bold; */
+  font-family: Bree-Serif;
+}
+
+/* .trip-class {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 1px;
+}
+
+.ow-button button, .rt-button button  {
+  background-color: #ffffff;
+  border: 1px solid #5E3A35;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: Bree-Serif;
+}
+
+.selected button {
+  background-color: #D5EAF1; 
+  color: black; 
+  border: 1px solid black;
+} */
+
+.redeem-button {
+  /* width: 170px;
+  height: 40px; */
+  background-color: #6FAEC9;
+  color: white;
+  border: 1px solid #5E3A35;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 29px;
+  font-family: Bree-Serif;
+  border-radius: 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  width: 20%;
+  height: 20%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Bree-Serif;
+}
+
+.code {
+  font-size: 26px;
+  font-weight: bold;
+  color: black;
+}

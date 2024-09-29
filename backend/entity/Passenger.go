@@ -20,7 +20,7 @@ type Passenger struct {
 	PassportDate string
 
 	MemberID *uint
-	Mmber Member`gorm:"foreignKey:MemberID"`
+	Member Member`gorm:"foreignKey:MemberID"`
 
 	BookingPassenger []BookingPassenger `gorm:"foreignKey:PassengerID"`
 }
