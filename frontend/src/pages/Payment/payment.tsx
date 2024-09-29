@@ -3,7 +3,7 @@ import { Layout, Divider, List, Typography, Button, Card, Form, Input, Flex } fr
 import { usePaymentService } from '../../Service/paymentService';
 import { useBookingService } from '../../Service/bookingService';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import imageSrc from 'c:/Users/Totragool/Documents/GitHub/PROJECT_SA_G11/frontend/src/assets/Screenshot 2024-09-19 023621.png';
+import imageSrc from '../../assets/Screenshot 2024-09-19 023621.png';
 
 
 const { Header, Footer, Content } = Layout;
